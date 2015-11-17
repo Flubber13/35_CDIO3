@@ -1,5 +1,6 @@
-package game;
+package main;
 
+import game.Controller;
 
 public class Main {
 	public static void main(String[] args) {

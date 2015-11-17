@@ -118,5 +118,12 @@ public class Controller {
 			GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());		// Shows dice on screen
 		}
 	}
+	private void removePlayer(Player player){
+		player
+		
+	}
+
+
+
 }
 
