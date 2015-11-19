@@ -16,21 +16,24 @@ public class GameBoard {
 	
 	
 	public void initialize(){
+		
 		Field[] fields = new Field[23];
-		GUI.create(fields);
+		
 		fields[2]= new Street.Builder()
 				.setTitle("Tribe Encampment")
 				.setDescription("Desctribtion text")
 				.setSubText("Sub text")
 				.setBgColor(Color.YELLOW)
-				.build( );
+				.build();
 		
-		fields[0]= new Street.Builder()
+		fields[3]= new Street.Builder()
 				.setTitle("Gold Mine")
 				.setDescription("Desctribtion text")
 				.setSubText("Sub text")
 				.setBgColor(Color.GREEN)
-				.build( );
+				.build();
+		
+		GUI.create(fields);
 	
 		
 		 // Start skal ikke umiddelbart have nogen text, og Title er allerede "START"
