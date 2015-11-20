@@ -32,7 +32,7 @@ public class Fleet extends AbstractOwnables{
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
 			if(owner == null){
-				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion + price, Text.yes, Text.no);
+				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion + PRICE, Text.yes, Text.no);
 				if(answer == true){
 					this.owner = player;
 					GUI.setOwner(place, player.getName());
@@ -42,22 +42,22 @@ public class Fleet extends AbstractOwnables{
 			}
 			// Proceeds to these 4 possibilities if property is not owned
 			// Rent that will be charge if 1 Fleet is owned
-			if(owner.getNumFleetOwned()==1){
+			else if(owner.getNumFleetOwned()==1){
 				player.getAccount().addBalance(-RENT_1);
 				owner.getAccount().addBalance(RENT_1);
 			}
 			// Rent that will be charge if 2 Fleets are owned
-			if(owner.getNumFleetOwned()==2){
+			else if(owner.getNumFleetOwned()==2){
 				player.getAccount().addBalance(-RENT_2);
 				owner.getAccount().addBalance(RENT_2);
 			}
 			// Rent that will be charge if 3 Fleets are owned
-			if(owner.getNumFleetOwned()==3){
+			else if(owner.getNumFleetOwned()==3){
 				player.getAccount().addBalance(-RENT_3);
 				owner.getAccount().addBalance(RENT_3);
 			}
 			// Rent that will be charge if 4 Fleets are owned
-			if(owner.getNumFleetOwned()==4){
+			else if(owner.getNumFleetOwned()==4){
 				player.getAccount().addBalance(-RENT_4);
 				owner.getAccount().addBalance(RENT_4);
 			}
