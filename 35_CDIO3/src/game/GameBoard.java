@@ -1,6 +1,12 @@
 package game;
 
 import desktop_resources.GUI;
+import fields.AbstractField;
+import fields.Fleet;
+import fields.LaborCamp;
+import fields.Refuge;
+import fields.Tax;
+import fields.Territory;
 
 public class GameBoard {
 	
@@ -81,6 +87,35 @@ public class GameBoard {
 		
 		}
 	
+	}
+
+	public static AbstractField[] getFields() {
+		// TODO make some fields!!!
+		AbstractField[] field = new AbstractField[23];
+		
+		field[2] = new Territory(2, 100, 1000);
+		field[4] = new Territory(4,300,1500);
+		field[6] = new Territory(6,500,2000);
+		field[8] = new Territory(8,700,3000);
+		field[10] = new Territory(10,1000,4000);
+		field[12] = new Territory(12,1300,4300);
+		field[14] = new Territory(14,1600,4750);
+		field[16] = new Territory(16,2000,5000);
+		field[18] = new Territory(18,2600,5500);
+		field[20] = new Territory(20,3200,6000);
+		field[22] = new Territory(22,4000,8000);
+		field[11] = new LaborCamp(11);
+		field[19] = new LaborCamp(19);
+		field[5] = new Fleet(5);
+		field[9] = new Fleet(9);
+		field[15] = new Fleet(15);
+		field[21] = new Fleet(21);	
+		field[7] = new Refuge(7,5000);
+		field[17] = new Refuge(17,500);
+		field[3] = new Tax(3);
+		field[13] = new Tax(13);
+		
+		return field;
 	}
 
 	

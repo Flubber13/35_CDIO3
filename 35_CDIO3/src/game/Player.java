@@ -36,14 +36,6 @@ public class Player {
 		return position;
 	}
 
-	public void setProperties(int properties) {
-
-	}
-
-	public int[] getProperties() {
-		return properties;
-	}
-
 	public int getNumFleetOwned() {
 		return numFleetOwned;
 	}

@@ -23,7 +23,7 @@ public class Territory extends AbstractOwnables {
 	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
-			if(owner == null){
+			if(owner == null){		// Checks if the Territory is owned
 				boolean s = GUI.getUserLeftButtonPressed("Vil du købe denne grund? Pris: $"+price, "Ja", "Nej");
 				if(s == true){
 					setOwner(player);

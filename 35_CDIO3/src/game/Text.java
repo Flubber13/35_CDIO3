@@ -15,19 +15,30 @@ public class Text {
 
 	static String landedOn = " landede på: ";
 
-	static String winner = " vinder spillet!";
+	static String winner = " vinder spillet. Du har nu monopol på hele pladen tilykke med det!";
 	
 	static String tie = "Spillet endte uafgjort";
 	
 	static String howManyPlayers = "Hvor mange spillere er I? (2-6 spillere)";
 	
-	static String rentRoll = " roll dice to determine rent";
+	static String rentRoll = " kast terningerne for at bestemme lejen";
 	
-	static String[] fieldName = {null,"Start","Tribe Encampment","Goldmine","Crater","Secaond Sail","Mountain","Monastery",
+	static String bankRobed = " du er gået bankerot! Du mister nu alle dine grunde, og de vil blive sat til salg på ny";
+	
+	static String laborRent = "Lejen du skal betale er: 100 x ";
+	
+	public static String buyQuestion = "Vil du købe denne grund? Pris: ";
+	public static String yes = "Ja";
+	public static String no = "Nej";
+	public static String taxChoice = "Hvor meget vil du betale i skat?";
+	
+	static String[] fieldName = {null,"Start","Tribe Encampment","Goldmine","Crater","Second Sail","Mountain","Monastery",
 								"Cold Dessert","Sea Grover","Black Cave","Huts int the Mountian","The Warewall","Caravan",
-								"Montain Village","The Buccaneers","South Citdal","Walled City","Palace Gates","The Pit",
+								"Mountain Village","The Buccaneers","South Citdal","Walled City","Palace Gates","The Pit",
 								"Tower","Privateer Armade","Castle"};
+
 	
+
 	
 	String tile1 = "";
 	String tile2 = "";

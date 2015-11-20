@@ -19,6 +19,9 @@ public abstract class AbstractOwnables extends AbstractField{
 		return owner;
 	}
 	
+	public void removeOwner(Player owner){
+		this.owner = null;
+	}
 
 	public abstract int getRent();
 
