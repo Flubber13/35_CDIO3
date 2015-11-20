@@ -1,5 +1,9 @@
 package game;
 
+import java.awt.Color;
+
+import desktop_fields.Field;
+import desktop_fields.Street;
 import desktop_resources.GUI;
 import fields.AbstractField;
 import fields.Fleet;
@@ -13,14 +17,23 @@ public class GameBoard {
 	
 	public static void initialize(){
 				
+		Field[] fields = new Field[23];
+		fields[3]= new Street.Builder()
+				.setTitle("Gold Mine")
+				.setDescription("Desctribtion text")
+				.setSubText("Sub text")
+				.setBgColor(Color.GREEN)
+				.build();
+		
+		
 		GUI.setSubText(1, null); // Start skal ikke umiddelbart have nogen text, og Title er allerede "START"
 		
 		GUI.setTitleText(2, "Tribe Encampment");
 		GUI.setSubText(2, "");
 		GUI.setDescriptionText(2,"Tribe Encampmetn \nPrice: $1000 \nRent: $100");
 		
-		GUI.setTitleText(3, "Gold Mine");
-		GUI.setSubText(3, "");
+//		GUI.setTitleText(3, "Gold Mine");
+//		GUI.setSubText(3, "");
 		
 		GUI.setTitleText(4, "Crater");
 		GUI.setSubText(4, "");
