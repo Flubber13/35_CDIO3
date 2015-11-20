@@ -3,6 +3,8 @@ package game;
 import java.awt.Color;
 
 import desktop_fields.Field;
+import desktop_fields.Shipping;
+import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_resources.GUI;
 import fields.AbstractField;
@@ -13,106 +15,189 @@ import fields.Tax;
 import fields.Territory;
 
 public class GameBoard {
-	
-	
+
+
 	public void initialize(){
-		
-		Field[] fields = new Field[23];
-		
-		fields[2]= new Street.Builder()
-				.setTitle("Tribe Encampment")
-				.setDescription("Desctribtion text")
-				.setSubText("Sub text")
-				.setBgColor(Color.YELLOW)
+
+		Field[] fields = new Field[22];
+
+		fields[0] = new Start.Builder()
+				.setBgColor(Color.RED)
+				.setDescription("")
+				.setSubText("")
+				.setFgColor(Color.WHITE)
+				.setTitle("START")
 				.build();
-		
-		fields[3]= new Street.Builder()
-				.setTitle("Gold Mine")
-				.setDescription("Desctribtion text")
-				.setSubText("Sub text")
+		fields[1] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[2] = new Street.Builder()
+				.setBgColor(Color.BLACK)
+				.setDescription("Gold Mine -2000")
+				.setSubText("")
+				.setFgColor(Color.WHITE)
+				.setTitle("Goldmine")
+				.build();
+		fields[3] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[4] = new Shipping.Builder()
+				.setBgColor(Color.WHITE)
+				.setDescription("Second Sail. Pris: 4000 Leje: 500-4000")
+				.setSubText("")
+				.setFgColor(Color.BLACK)
+				.setTitle("Second Sail")
+				.build();
+		fields[5] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[6] = new Street.Builder()
 				.setBgColor(Color.GREEN)
+				.setDescription("Monastry. Modtag 500")
+				.setSubText("")
+				.setFgColor(Color.BLACK)
+				.setTitle("Monastry")
 				.build();
-		
+		fields[7] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("700")
+				.setTitle("Cold Dessert. Pris: 3000, Leje: 700")
+				.build();
+		fields[8] = new Shipping.Builder()
+				.setBgColor(Color.WHITE)
+				.setDescription("Sea Grover. Pris: 4000 Leje: 500-4000")
+				.setSubText("")
+				.setFgColor(Color.BLACK)
+				.setTitle("Sea Grover")
+				.build();
+		fields[9] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[10] = new Street.Builder()
+				.setBgColor(Color.ORANGE)
+				.setDescription("Huts in the Mountain. Pris: 2500, Leje:100 x antal øjne")
+				.setSubText("")
+				.setFgColor(Color.BLACK)
+				.setRent("100 x antal øjne")
+				.setTitle("Huts in the Mountain")
+				.build();
+		fields[11] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[12] = new Street.Builder()
+				.setBgColor(Color.BLACK)
+				.setDescription("Caravan. Betal skat: 4000 eller 10%")
+				.setSubText("")
+				.setFgColor(Color.WHITE)
+				.setTitle("Caravan")
+				.build();
+		fields[13] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[14] = new Shipping.Builder()
+				.setBgColor(Color.WHITE)
+				.setDescription("The Buccaneers. Pris: 4000 Leje: 500-4000")
+				.setSubText("")
+				.setFgColor(Color.BLACK)
+				.setTitle("The Buccaneers")
+				.build();
+		fields[15] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[16] = new Street.Builder()
+				.setBgColor(Color.GREEN)
+				.setDescription("Walled City. Modtag: 5000")
+				.setSubText("")
+				.setFgColor(Color.BLACK)
+				.setRent("100")
+				.setTitle("Walled City")
+				.build();		
+		fields[17] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[18] = new Street.Builder()
+				.setBgColor(Color.ORANGE)
+				.setDescription("The Pit. Pris 2500, Leje 100 x antal øjne")
+				.setSubText("")
+				.setFgColor(Color.BLACK)
+				.setRent("100 x antal øjne")
+				.setTitle("The Pit")
+				.build();
+		fields[19] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
+		fields[20] = new Shipping.Builder()
+				.setBgColor(Color.WHITE)
+				.setDescription("Privateer Armade. Pris 4000, Leje 500-4000")
+				.setSubText("")
+				.setFgColor(Color.BLACK)
+				.setRent("500-4000")
+				.setTitle("Privateer Armade")
+				.build();
+		fields[21] = new Street.Builder()
+				.setBgColor(Color.BLUE)
+				.setDescription("description")
+				.setSubText(null)
+				.setFgColor(Color.CYAN)
+				.setRent("100")
+				.setTitle("Title")
+				.build();
 		GUI.create(fields);
-	
-		
-		 // Start skal ikke umiddelbart have nogen text, og Title er allerede "START"
-		
-//		GUI.setTitleText(2, "Tribe Encampment");
-//		GUI.setSubText(2, "");
-//		GUI.setDescriptionText(2,"Tribe Encampmetn \nPrice: $1000 \nRent: $100");
-//		
-////		GUI.setTitleText(3, "Gold Mine");
-////		GUI.setSubText(3, "");
-//		
-//		GUI.setTitleText(4, "Crater");
-//		GUI.setSubText(4, "");
-//		
-//		GUI.setTitleText(5, "Second Sail");
-//		GUI.setSubText(5, "");
-//		
-//		GUI.setTitleText(6, "Mountain");
-//		GUI.setSubText(6, "");
-//		
-//		GUI.setTitleText(7, "Monastery");
-//		GUI.setSubText(7, "");
-//		
-//		GUI.setTitleText(8, "Cold Dessert");
-//		GUI.setSubText(8, "");
-//		
-//		GUI.setTitleText(9, "Sea Grover");
-//		GUI.setSubText(9, "");
-//		
-//		GUI.setTitleText(10, "Black Cave");
-//		GUI.setSubText(10, "");
-//		
-//		GUI.setTitleText(11, "Huts in the Mountain");
-//		GUI.setSubText(11, "");
-//		
-//		GUI.setTitleText(12, "The Warewall");
-//		GUI.setSubText(12, "");
-//		
-//		GUI.setTitleText(13, "Caraven");
-//		GUI.setSubText(13, "");
-//		
-//		GUI.setTitleText(14, "Mountain Village");
-//		GUI.setSubText(14, "");
-//		
-//		GUI.setTitleText(15, "The Buccaneers");
-//		GUI.setSubText(15, "");
-//		
-//		GUI.setTitleText(16, "Sounth Citadel");
-//		GUI.setSubText(16, "");
-//		
-//		GUI.setTitleText(17, "Walled City");
-//		GUI.setSubText(17, "");
-//		
-//		GUI.setTitleText(18, "Palace Gates");
-//		GUI.setSubText(18, "");
-//		
-//		GUI.setTitleText(19, "The Pit");
-//		GUI.setSubText(19, "");
-//		
-//		GUI.setTitleText(20, "Tower");
-//		GUI.setSubText(20, "");
-//		
-//		GUI.setTitleText(21, "Privateer Armade");
-//		GUI.setSubText(21, "");
-//		
-//		GUI.setTitleText(22, "Castle");
-//		GUI.setSubText(22, "");
-//	
-//		for (int i = 23; i < 40; i++) {
-//			GUI.setTitleText(i, "");
-//			GUI.setSubText(i, "");	
-//		}
-	
+
 	}
 
 	public static AbstractField[] getFields() {
 		// TODO make some fields!!!
 		AbstractField[] field = new AbstractField[23];
-		
+
 		field[2] = new Territory(2, 100, 1000);
 		field[4] = new Territory(4,300,1500);
 		field[6] = new Territory(6,500,2000);
@@ -134,9 +219,9 @@ public class GameBoard {
 		field[17] = new Refuge(17,500);
 		field[3] = new Tax(3);
 		field[13] = new Tax(13);
-		
+
 		return field;
 	}
 
-	
+
 }
