@@ -45,7 +45,7 @@ public class Controller {
 	public void run() {
 
 		// Set up the fields on the game board 
-		gameboard.initialize();
+		//gameboard.initialize();   Metoden er kommenteret ud da den er under udvikling 
 
 		// Determines the number of players in the game
 		numOfPlayers = GUI.getUserInteger(Text.howManyPlayers, 2, 6);
