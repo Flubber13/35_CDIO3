@@ -23,7 +23,7 @@ public class GameBoard {
 				.setDescription("Desctribtion text")
 				.setSubText("Sub text")
 				.setBgColor(Color.GREEN)
-				.build();
+				.build( );
 		
 		
 		GUI.setSubText(1, null); // Start skal ikke umiddelbart have nogen text, og Title er allerede "START"
