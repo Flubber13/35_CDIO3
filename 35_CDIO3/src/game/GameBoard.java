@@ -129,7 +129,7 @@ public class GameBoard {
 				.setSubText("")
 				.setRent("500-4000")
 				.setFgColor(Color.BLACK)
-				.setTitle("The Buccaneers")
+				.setTitle("Buccaneers")
 				.build();
 		fields[15] = new Street.Builder()
 				.setBgColor(Color.LIGHT_GRAY)
@@ -169,7 +169,7 @@ public class GameBoard {
 				.setFgColor(Color.BLACK)
 				.setRent("3200")
 				.setTitle("Tower")
-				.build();
+				.build(); 
 		fields[20] = new Shipping.Builder()
 				.setBgColor(Color.WHITE)
 				.setDescription("Privateer Armade. Pris 4000")
