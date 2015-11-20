@@ -16,8 +16,16 @@ public class GameBoard {
 	
 	
 	public static void initialize(){
-				
+		
 		Field[] fields = new Field[23];
+		
+		fields[2]= new Street.Builder()
+				.setTitle("Tribe Encampment")
+				.setDescription("Desctribtion text")
+				.setSubText("Sub text")
+				.setBgColor(Color.YELLOW)
+				.build( );
+		
 		fields[3]= new Street.Builder()
 				.setTitle("Gold Mine")
 				.setDescription("Desctribtion text")
