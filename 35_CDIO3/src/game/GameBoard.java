@@ -14,14 +14,14 @@ public class GameBoard {
 	public void initialize(){
 
 		Field[] fields = new Field[22];
-
-		fields[0] = new Start.Builder()
-				.setBgColor(Color.RED)
-				.setDescription("")
-				.setSubText("")
-				.setFgColor(Color.WHITE)
-				.setTitle("START")
-				.build();
+		//The first field is created
+		fields[0] = new Start.Builder()		//Field is of type 'Start'
+				.setBgColor(Color.RED) 		//Background color is set to 'red'
+				.setDescription("")			//The default description is replaced by an empty description
+				.setSubText("")				//The default subText is replaced by an empty subText
+				.setFgColor(Color.WHITE)	//Text color is set to 'white'
+				.setTitle("START")			//Field title is set to "Start"
+				.build();					// The field is finally built
 		fields[1] = new Street.Builder()
 				.setBgColor(Color.LIGHT_GRAY)
 				.setDescription("Tribe Encampment. Pris: 1000")
