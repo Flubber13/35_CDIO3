@@ -2,6 +2,7 @@ package fields;
 
 import desktop_resources.GUI;
 import game.Player;
+import game.Text;
 
 public class Territory extends AbstractOwnables {
 
@@ -24,8 +25,8 @@ public class Territory extends AbstractOwnables {
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
 			if(owner == null){		// Checks if the Territory is owned
-				boolean s = GUI.getUserLeftButtonPressed("Vil du købe denne grund? Pris: $"+price, "Ja", "Nej");
-				if(s == true){
+				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion + price, Text.yes, Text.no);
+				if(answer == true){
 					setOwner(player);
 					GUI.setOwner(place, player.getName());
 					player.getAccount().addBalance(-price);
