@@ -15,12 +15,12 @@ public class GameBoard {
 
 		Field[] fields = new Field[22];
 		//The first field is created
-		fields[0] = new Start.Builder()		//Field is of type 'Start'
-				.setBgColor(Color.RED) 		//Background color is set to 'red'
-				.setDescription("")			//The default description is replaced by an empty description
-				.setSubText("")				//The default subText is replaced by an empty subText
-				.setFgColor(Color.WHITE)	//Text color is set to 'white'
-				.setTitle("START")			//Field title is set to "Start"
+		fields[0] = new Start.Builder()		// Field is of type 'Start'
+				.setBgColor(Color.RED) 		// Background color is set to 'red'
+				.setDescription("")			// The default description is replaced by an empty description
+				.setSubText("")				// The default subText is replaced by an empty subText
+				.setFgColor(Color.WHITE)	// Text color is set to 'white'
+				.setTitle("START")			// Field title is set to "Start"
 				.build();					// The field is finally built
 		fields[1] = new Street.Builder()
 				.setBgColor(Color.LIGHT_GRAY)
@@ -32,7 +32,7 @@ public class GameBoard {
 				.build();
 		fields[2] = new Street.Builder()
 				.setBgColor(Color.BLACK)
-				.setDescription("Gold Mine -2000")
+				.setDescription("Goldmine. Betal skat: 2000")
 				.setSubText("")
 				.setFgColor(Color.WHITE)
 				.setTitle("Goldmine")
@@ -47,8 +47,9 @@ public class GameBoard {
 				.build();
 		fields[4] = new Shipping.Builder()
 				.setBgColor(Color.WHITE)
-				.setDescription("Second Sail. Pris: 4000 Leje: 500-4000")
+				.setDescription("Second Sail. Pris: 4000")
 				.setSubText("")
+				.setRent("500-4000")
 				.setFgColor(Color.BLACK)
 				.setTitle("Second Sail")
 				.build();
@@ -62,7 +63,7 @@ public class GameBoard {
 				.build();
 		fields[6] = new Street.Builder()
 				.setBgColor(Color.GREEN)
-				.setDescription("Monastry. Modtag 500")
+				.setDescription("Monastry. Modtag: 500")
 				.setSubText("")
 				.setFgColor(Color.BLACK)
 				.setTitle("Monastry")
@@ -77,8 +78,9 @@ public class GameBoard {
 				.build();
 		fields[8] = new Shipping.Builder()
 				.setBgColor(Color.WHITE)
-				.setDescription("Sea Grover. Pris: 4000 Leje: 500-4000")
+				.setDescription("Sea Grover. Pris: 4000")
 				.setSubText("")
+				.setRent("500-4000")
 				.setFgColor(Color.BLACK)
 				.setTitle("Sea Grover")
 				.build();
@@ -92,7 +94,7 @@ public class GameBoard {
 				.build();
 		fields[10] = new Street.Builder()
 				.setBgColor(Color.MAGENTA)
-				.setDescription("Huts in the Mountain. Pris: 2500, Leje:100 x antal øjne")
+				.setDescription("Huts in the Mountain. Pris: 2500")
 				.setSubText("")
 				.setFgColor(Color.BLACK)
 				.setRent("100 x antal øjne")
@@ -123,8 +125,9 @@ public class GameBoard {
 				.build();
 		fields[14] = new Shipping.Builder()
 				.setBgColor(Color.WHITE)
-				.setDescription("The Buccaneers. Pris: 4000 Leje: 500-4000")
+				.setDescription("The Buccaneers. Pris: 4000")
 				.setSubText("")
+				.setRent("500-4000")
 				.setFgColor(Color.BLACK)
 				.setTitle("The Buccaneers")
 				.build();
@@ -141,7 +144,6 @@ public class GameBoard {
 				.setDescription("Walled City. Modtag: 5000")
 				.setSubText("")
 				.setFgColor(Color.BLACK)
-				.setRent("100")
 				.setTitle("Walled City")
 				.build();		
 		fields[17] = new Street.Builder()
@@ -154,7 +156,7 @@ public class GameBoard {
 				.build();
 		fields[18] = new Street.Builder()
 				.setBgColor(Color.MAGENTA)
-				.setDescription("The Pit. Pris 2500, Leje 100 x antal øjne")
+				.setDescription("The Pit. Pris 2500")
 				.setSubText("")
 				.setFgColor(Color.BLACK)
 				.setRent("100 x antal øjne")
@@ -170,7 +172,7 @@ public class GameBoard {
 				.build();
 		fields[20] = new Shipping.Builder()
 				.setBgColor(Color.WHITE)
-				.setDescription("Privateer Armade. Pris 4000, Leje 500-4000")
+				.setDescription("Privateer Armade. Pris 4000")
 				.setSubText("")
 				.setFgColor(Color.BLACK)
 				.setRent("500-4000")
