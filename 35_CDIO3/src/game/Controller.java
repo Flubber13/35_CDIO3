@@ -1,5 +1,7 @@
 package game;
 
+import java.awt.Color;
+
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
 import fields.Fleet;
@@ -15,8 +17,7 @@ public class Controller {
 	int activePlayers;
 
 	Player[] player = new Player[6];
-	DiceCup dicecup = new DiceCup();
-	Car[] car;  
+	DiceCup dicecup = new DiceCup(); 
 	GameBoard gameboard = new GameBoard();
 
 	Territory f2 = new Territory(2, 100, 1000);
@@ -40,10 +41,12 @@ public class Controller {
 	Refuge f17 = new Refuge(17,5000);
 	Tax f3 = new Tax(3);
 	Tax f13 = new Tax(13);
-
+	Car[] car = new Car[6];
 
 	public void run() {
-
+		
+		createCars();
+		
 		// Set up the fields on the game board 
 		gameboard.initialize();
 
@@ -54,7 +57,7 @@ public class Controller {
 		// This loop adds the determined number of players to the game
 		for (int i = 0; i < numOfPlayers; i++) {
 			player[i] = new Player(30000,GUI.getUserString(Text.enterName[i]));		// Player gets balance and a name chosen by user
-			GUI.addPlayer(player[i].getName(), player[i].getAccount().getBalance());	// Player is added to board
+			GUI.addPlayer(player[i].getName(), player[i].getAccount().getBalance(),car[i]);	// Player is added to board
 			GUI.setCar(1, player[i].getName());	// Players car is added to board
 		}
 
@@ -62,13 +65,12 @@ public class Controller {
 		while(activePlayers>1){
 			for (int i = 0; i < numOfPlayers; i++){
 				playerTurn(player[i]);
-				for (int j = 0; j < numOfPlayers; j++){	// inner loop will update the balance of all players after every turn
-					GUI.setBalance(player[j].getName(),player[j].getAccount().getBalance());
-				}
-				if(activePlayers==1)break;
-			}	
+				for (int j = 0; j < numOfPlayers; j++)	
+					GUI.setBalance(player[j].getName(),player[j].getAccount().getBalance());// Updates everybody's balance after every turn
+				if(activePlayers==1)break; // Breaks out of the loop, if only one active player is left
+			}
 			for (int i = 0; i < numOfPlayers; i++){
-				setWinner(player[i]);
+				setWinner(player[i]);	// Checks if only one player is left, and sets the player as winner
 			}			
 		}
 	}
@@ -82,32 +84,10 @@ public class Controller {
 			GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());	// Dice is shown on screen
 			GUI.setCar(player.getPosition(), player.getName());		// Car is moved to field
 			GUI.showMessage(player.getName() + Text.landedOn + Text.fieldName[player.getPosition()]);	// Displays which player landed on the field
-
-			// player is asked to roll dice again, if they landed on a Labor Camp, f11 or f19
-			labourRoll(player,f11,11);
-			labourRoll(player,f19,19);
-
-			// Runs through the operation for the field the player landed on
-			landedOnOperations(player);
-			
-			// Shows current player balance on GUI game board
-			GUI.setBalance(player.getName(), player.getAccount().getBalance());
-			
-			// Here the player is removed from the game if their balance is 0, after their turn.
-			if (player.getAccount().getBalance()==0){
-				bankRupt(player);
-			}
-		}
-	}
-
-	/* If the player landed on the Labor Camp and the labor camp is not owned by the player, 
-	   but owned by another player, the player will be asked to roll the dice again */
-	private void labourRoll(Player player, LaborCamp f, int place){
-		if( player.getPosition() == place && player!=f.getOwner() && f.getOwner() != null){
-			GUI.showMessage(player.getName()+Text.rentRoll);	// Tells player to roll again
-			player.setLastRoll(dicecup.roll());		// Rolls the dice and saves it to player
-			GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());		// Shows dice on screen
-			GUI.showMessage(Text.laborRent+ player.getLastRoll()+ " = " + (player.getLastRoll()*100));
+			landedOnOperations(player);	// Runs through the operation for the field the player landed on
+			GUI.setBalance(player.getName(), player.getAccount().getBalance()); // Shows current player balance on GUI game board
+			if (player.getAccount().getBalance()==0) 
+				bankRupt(player);	// Player is removed from the game if their balance is 0, after their turn.
 		}
 	}
 	
@@ -174,7 +154,7 @@ public class Controller {
 			GUI.removeOwner(21);}
 	}
 
-	/* Here we run through all landedOn operations. The operation only works if 
+	/* Here all the 'landedOn operations' are run through. The operations only work if 
 	 * the player actually lands on the field that corresponds to the operation */
 	private void landedOnOperations(Player player){
 		f2.landedOn(player);
@@ -200,10 +180,45 @@ public class Controller {
 		f22.landedOn(player);
 	}
 
+	// This method set a player to be the winner if he/she is the only active player in the game
 	private void setWinner(Player player){
 		if(player.getAccount().getBalance()!=0 && activePlayers==1){
 			while(true)GUI.showMessage(">>> "+player.getName()+Text.winner+" <<<");
 		}
+	}
+	
+	// This method creates 6 cars, one for every possible player
+	private void createCars(){
+		car[0] =  new Car.Builder()			// Car is saved in car array index 0
+				.typeRacecar()				// Type is set 
+				.patternFill()				// Color pattern is set 
+				.primaryColor(Color.RED)	// Color is set 
+				.build();					// Car is build
+		car[1] =  new Car.Builder()
+				.typeTractor()
+				.patternFill()
+				.primaryColor(Color.GREEN)
+				.build();
+		car[2] =  new Car.Builder()
+				.typeUfo()
+				.patternFill()
+				.primaryColor(Color.ORANGE)
+				.build();
+		car[3] =  new Car.Builder()
+				.typeRacecar()
+				.patternFill()
+				.primaryColor(Color.YELLOW)
+				.build();
+		car[4] =  new Car.Builder()
+				.typeTractor()
+				.patternFill()
+				.primaryColor(Color.BLUE)
+				.build();
+		car[5] =  new Car.Builder()
+				.typeUfo()
+				.patternFill()
+				.primaryColor(Color.BLACK)
+				.build();
 	}
 }
 
