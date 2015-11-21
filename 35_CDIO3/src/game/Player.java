@@ -6,7 +6,6 @@ public class Player {
 	private String name;
 	private BankAccount account;
 	private int position = 1;
-	private int[] properties;
 	private int numFleetOwned;
 	private int lastRoll;
 
