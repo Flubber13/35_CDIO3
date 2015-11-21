@@ -27,7 +27,7 @@ public class GameBoard {
 				.setDescription("Tribe Encampment. Pris: 1000")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("100")
+				.setRent("Leje: 100")
 				.setTitle("Tribe Encampment")
 				.build();
 		fields[2] = new Street.Builder()
@@ -42,14 +42,14 @@ public class GameBoard {
 				.setDescription("Crater. Pris: 1500")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("300")
+				.setRent("Leje: 300")
 				.setTitle("Crater")
 				.build();
 		fields[4] = new Shipping.Builder()
 				.setBgColor(Color.WHITE)
 				.setDescription("Second Sail. Pris: 4000")
 				.setSubText("")
-				.setRent("500-4000")
+				.setRent("Leje: 500-4000")
 				.setFgColor(Color.BLACK)
 				.setTitle("Second Sail")
 				.build();
@@ -58,7 +58,7 @@ public class GameBoard {
 				.setDescription("Mountain. Pris: 2000")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("500")
+				.setRent("Leje: 500")
 				.setTitle("Mountain")
 				.build();
 		fields[6] = new Street.Builder()
@@ -73,14 +73,14 @@ public class GameBoard {
 				.setDescription("Cold Dessert. Pris: 3000")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("700")
+				.setRent("Leje: 700")
 				.setTitle("Cold Dessert")
 				.build();
 		fields[8] = new Shipping.Builder()
 				.setBgColor(Color.WHITE)
 				.setDescription("Sea Grover. Pris: 4000")
 				.setSubText("")
-				.setRent("500-4000")
+				.setRent("Leje: 500-4000")
 				.setFgColor(Color.BLACK)
 				.setTitle("Sea Grover")
 				.build();
@@ -89,7 +89,7 @@ public class GameBoard {
 				.setDescription("Black Cave. Pris: 4000")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("1000")
+				.setRent("Leje: 1000")
 				.setTitle("Black Cave")
 				.build();
 		fields[10] = new Street.Builder()
@@ -97,7 +97,7 @@ public class GameBoard {
 				.setDescription("Huts in the Mountain. Pris: 2500")
 				.setSubText("")
 				.setFgColor(Color.BLACK)
-				.setRent("100 x antal øjne")
+				.setRent("Leje: 100 x antal øjne")
 				.setTitle("Huts in the Mountain")
 				.build();
 		fields[11] = new Street.Builder()
@@ -105,7 +105,7 @@ public class GameBoard {
 				.setDescription("The Warewall. Pris: 4300")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("1300")
+				.setRent("Leje: 1300")
 				.setTitle("The Warewall")
 				.build();
 		fields[12] = new Street.Builder()
@@ -120,14 +120,14 @@ public class GameBoard {
 				.setDescription("Mountain Village. Pris: 4750")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("1600")
+				.setRent("Leje: 1600")
 				.setTitle("Mountain Village")
 				.build();
 		fields[14] = new Shipping.Builder()
 				.setBgColor(Color.WHITE)
 				.setDescription("The Buccaneers. Pris: 4000")
 				.setSubText("")
-				.setRent("500-4000")
+				.setRent("Leje: 500-4000")
 				.setFgColor(Color.BLACK)
 				.setTitle("Buccaneers")
 				.build();
@@ -136,7 +136,7 @@ public class GameBoard {
 				.setDescription("South Citadel. Pris: 5000")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("2000")
+				.setRent("Leje: 2000")
 				.setTitle("South Citadel")
 				.build();
 		fields[16] = new Street.Builder()
@@ -151,7 +151,7 @@ public class GameBoard {
 				.setDescription("Tribe Encampment. Pris: 5500")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("2600")
+				.setRent("Leje: 2600")
 				.setTitle("Palace Gates")
 				.build();
 		fields[18] = new Street.Builder()
@@ -159,7 +159,7 @@ public class GameBoard {
 				.setDescription("The Pit. Pris 2500")
 				.setSubText("")
 				.setFgColor(Color.BLACK)
-				.setRent("100 x antal øjne")
+				.setRent("Leje: 100 x antal øjne")
 				.setTitle("The Pit")
 				.build();
 		fields[19] = new Street.Builder()
@@ -167,7 +167,7 @@ public class GameBoard {
 				.setDescription("Tower. Pris: 6000")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("3200")
+				.setRent("Leje: 3200")
 				.setTitle("Tower")
 				.build(); 
 		fields[20] = new Shipping.Builder()
@@ -175,7 +175,7 @@ public class GameBoard {
 				.setDescription("Privateer Armade. Pris 4000")
 				.setSubText("")
 				.setFgColor(Color.BLACK)
-				.setRent("500-4000")
+				.setRent("Leje: 500-4000")
 				.setTitle("Privateer Armade")
 				.build();
 		fields[21] = new Street.Builder()
@@ -183,7 +183,7 @@ public class GameBoard {
 				.setDescription("Castle. Pris: 8000")
 				.setSubText(null)
 				.setFgColor(Color.BLACK)
-				.setRent("4000")
+				.setRent("Leje: 4000")
 				.setTitle("Castle")
 				.build();
 		GUI.create(fields);
