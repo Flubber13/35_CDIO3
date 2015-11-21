@@ -21,11 +21,11 @@ public class Text {
 	
 	static String howManyPlayers = "Hvor mange spillere er I? (2-6 spillere)";
 	
-	static String rentRoll = " kast terningerne for at bestemme lejen";
+	public static String rentRoll = " kast terningerne for at bestemme lejen";
 	
 	static String bankRobed = " du er gået bankerot! Du mister nu alle dine grunde, og de vil blive sat til salg på ny";
 	
-	static String laborRent = "Lejen du skal betale er: 100 x ";
+	public static String laborRent = "Lejen du skal betale er: 100 x ";
 	
 	public static String buyQuestion = "Vil du købe denne grund? Pris: ";
 	public static String yes = "Ja";
