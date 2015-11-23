@@ -11,6 +11,7 @@ public class Text {
 								"Spiller 3 indtast dit navn", "Spiller 4 indtast dit navn",
 								"Spiller 5 indtast dit navn", "Spiller 6 indtast dit navn"};
 	static String nameTaken = "Navnet er taget. Prøv igen";
+	static String nameInvalid = "Navnet er ugyldigt. Prøv igen";
 	
 	static String roll = " Tryk OK for at kaste med terningerne";	
 

@@ -59,6 +59,11 @@ public class Controller {
 		for (int i = 0; i < numOfPlayers; i++) {
 			name[i] = GUI.getUserString(Text.enterName[i]);
 
+			while (name[i].equals("")){
+				GUI.showMessage(Text.nameInvalid);
+				name[i] = GUI.getUserString(Text.enterName[i]);
+			}
+			
 			for (int j = 1; j <= i; j++){
 				while(name[i].equals(name[i-j])) {
 					GUI.showMessage(Text.nameTaken);
