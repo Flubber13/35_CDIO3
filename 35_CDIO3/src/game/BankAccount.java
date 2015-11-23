@@ -18,11 +18,11 @@ public class BankAccount {
 	/*The following method addBalance adds the points from the field which the player landed on. 
 	  If the balance becomes negative, after the addition, the balance will be set to 0.*/
 	
-	public int addBalance(int input){
-		if (this.balance + input < 0)
+	public int addBalance(double d){
+		if (this.balance + d < 0)
 			this.balance = 0;
-		else this.balance = this.balance + input;
-		return input;
+		else this.balance = (int) (this.balance + d);
+		return (int) d;
 	}
 	
 	
