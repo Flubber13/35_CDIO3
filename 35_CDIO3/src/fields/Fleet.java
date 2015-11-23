@@ -6,6 +6,7 @@ import game.Text;
 
 public class Fleet extends AbstractOwnables{
 
+	int baseRent = 500;
 	final int RENT_1 = 500;
 	final int RENT_2 = 1000;
 	final int RENT_3 = 2000;
@@ -32,7 +33,7 @@ public class Fleet extends AbstractOwnables{
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
 			if(owner == null){
-				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion + PRICE, Text.yes, Text.no);
+				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion  + PRICE, Text.yes, Text.no);
 				if(answer == true){
 					this.owner = player;
 					GUI.setOwner(place, player.getName());
@@ -46,30 +47,9 @@ public class Fleet extends AbstractOwnables{
 				GUI.showMessage(owner + Text.owned);
 			}
 			else {
-
-				if(owner.getNumFleetOwned()==1){
-					GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.pay + RENT_1 + Text.to + owner.getName());
-					player.getAccount().addBalance(-RENT_1);
-					owner.getAccount().addBalance(RENT_1);
-				}
-				// Rent that will be charge if 2 Fleets are owned
-				else if(owner.getNumFleetOwned()==2){
-					GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.pay + RENT_2 + Text.to + owner.getName());
-					player.getAccount().addBalance(-RENT_2);
-					owner.getAccount().addBalance(RENT_2);
-				}
-				// Rent that will be charge if 3 Fleets are owned
-				else if(owner.getNumFleetOwned()==3){
-					GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.pay + RENT_3 + Text.to + owner.getName());
-					player.getAccount().addBalance(-RENT_3);
-					owner.getAccount().addBalance(RENT_3);
-				}
-				// Rent that will be charge if 4 Fleets are owned
-				else if(owner.getNumFleetOwned()==4){
-					GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.pay + RENT_4 + Text.to + owner.getName());
-					player.getAccount().addBalance(-RENT_4);
-					owner.getAccount().addBalance(RENT_4);
-				}
+				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.pay + (baseRent*Math.pow(2, player.getNumFleetOwned())) + Text.to + owner.getName());
+				player.getAccount().addBalance(-baseRent*Math.pow(2, player.getNumFleetOwned()));
+				owner.getAccount().addBalance(baseRent*Math.pow(2, player.getNumFleetOwned()));
 			}
 		}
 	}
