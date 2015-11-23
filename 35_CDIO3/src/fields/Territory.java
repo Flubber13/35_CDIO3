@@ -32,12 +32,18 @@ public class Territory extends AbstractOwnables {
 					player.getAccount().addBalance(-price);
 				}
 			}
+			else if(owner == player){
+				GUI.showMessage(owner + " ejer allerede denne grund");
+			}	
+			
 			else{
+				GUI.showMessage("Denne grund er allerede ejet af " + owner.getName() + ", " +  player.getName() + " skal derfor betale " + rent + " til " + owner.getName());
 				player.getAccount().addBalance(-rent);
 				owner.getAccount().addBalance(rent);
+				}
 			}
 		}
-	}
+}
 
 	/*
 	2.	Tribe Encampment - Territory
@@ -52,6 +58,3 @@ public class Territory extends AbstractOwnables {
 	20.	Tower – Territory
 	22.	Castle - Territory
 	 */
-
-
-}
