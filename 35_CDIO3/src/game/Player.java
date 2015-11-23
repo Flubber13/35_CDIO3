@@ -39,7 +39,7 @@ public class Player {
 		return numFleetOwned;
 	}
 
-	public void setNumFleetOwned(int numFleetOwned) {
+	public void addNumFleetOwned(int numFleetOwned) {
 		this.numFleetOwned += numFleetOwned;
 	}
 
