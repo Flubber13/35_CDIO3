@@ -33,11 +33,11 @@ public class Territory extends AbstractOwnables {
 				}
 			}
 			else if(owner == player){
-				GUI.showMessage(owner + " ejer allerede denne grund");
+				GUI.showMessage(owner + Text.owned);
 			}	
 			
 			else{
-				GUI.showMessage("Denne grund er allerede ejet af " + owner.getName() + ", " +  player.getName() + " skal derfor betale " + rent + " til " + owner.getName());
+				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.pay + rent + Text.to + owner.getName());
 				player.getAccount().addBalance(-rent);
 				owner.getAccount().addBalance(rent);
 				}
