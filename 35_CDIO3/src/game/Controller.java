@@ -15,6 +15,7 @@ public class Controller {
 
 	int numOfPlayers;
 	int activePlayers;
+	String[] name = new String[6];
 
 	Player[] player = new Player[6];
 	DiceCup dicecup = new DiceCup(); 
@@ -44,9 +45,9 @@ public class Controller {
 	Car[] car = new Car[6];
 
 	public void run() {
-		
+
 		createCars();
-		
+
 		// Set up the fields on the game board 
 		gameboard.initialize();
 
@@ -56,8 +57,19 @@ public class Controller {
 
 		// This loop adds the determined number of players to the game
 		for (int i = 0; i < numOfPlayers; i++) {
-			player[i] = new Player(30000,GUI.getUserString(Text.enterName[i]));		// Player gets balance and a name chosen by user
-			GUI.addPlayer(player[i].getName(), player[i].getAccount().getBalance(),car[i]);	// Player is added to board
+			name[i] = GUI.getUserString(Text.enterName[i]);
+
+			for (int j = 1; j <= i; j++){
+				while(name[i].equals(name[i-j])) {
+					GUI.showMessage(Text.nameTaken);
+					name[i] = GUI.getUserString(Text.enterName[i]);
+				}
+
+			}
+			
+			player[i] = new Player(30000,name[i]);		// Player gets balance and a name chosen by user
+
+			GUI.addPlayer(player[i].getName(), player[i].getAccount().getBalance(),car[i]);	// Player is added to board	
 			GUI.setCar(1, player[i].getName());	// Players car is added to board
 		}
 
@@ -90,7 +102,7 @@ public class Controller {
 				bankRupt(player);	// Player is removed from the game if their balance is 0, after their turn.
 		}
 	}
-	
+
 	// Removes all properties and cars from player
 	private void bankRupt(Player player){
 		GUI.showMessage(player.getName()+Text.bankRobed);
@@ -186,7 +198,7 @@ public class Controller {
 			while(true)GUI.showMessage(">>> "+player.getName()+Text.winner+" <<<");
 		}
 	}
-	
+
 	// This method creates 6 cars, one for every possible player
 	private void createCars(){
 		car[0] =  new Car.Builder()			// Car is saved in car array index 0

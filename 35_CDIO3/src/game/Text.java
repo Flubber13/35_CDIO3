@@ -10,6 +10,7 @@ public class Text {
 	static String[] enterName = {"Spiller 1 indtast dit navn", "Spiller 2 indtast dit navn",
 								"Spiller 3 indtast dit navn", "Spiller 4 indtast dit navn",
 								"Spiller 5 indtast dit navn", "Spiller 6 indtast dit navn"};
+	static String nameTaken = "Navnet er taget. Prøv igen";
 	
 	static String roll = " Tryk OK for at kaste med terningerne";	
 
