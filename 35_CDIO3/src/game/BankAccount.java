@@ -12,7 +12,7 @@ public class BankAccount {
 	
 	//Method to get the balance
 	public int getBalance(){
-		return balance;
+		return balance; 
 	}
 	
 	/*The following method addBalance adds the points from the field which the player landed on. 
