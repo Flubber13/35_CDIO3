@@ -37,6 +37,12 @@ public class Text {
 								"Mountain Village","The Buccaneers","South Citdal","Walled City","Palace Gates","The Pit",
 								"Tower","Privateer Armade","Castle"};
 
+	public static String owned = "Denne grund er allerede ejet af ";
+
+	public static String pay = " skal derfor betale ";
+
+	public static String to = " til ";
+
 	
 
 	
