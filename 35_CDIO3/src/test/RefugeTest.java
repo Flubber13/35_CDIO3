@@ -14,7 +14,7 @@ public class RefugeTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		this.player = new Player(1000, "Anders And");
+		this.player = new Player(1000, "Donald Duck");
 		this.refuge200 = new Refuge(1, 200);
 		this.refuge0 = new Refuge(2, 0);
 		this.refugeNeg200 = new Refuge(3, -200);
@@ -22,7 +22,7 @@ public class RefugeTest {
 	
 	@After
 	public void tearDown() throws Exception {
-		this.player = new Player(1000, "Anders And");
+		this.player = new Player(1000, "Donald Duck");
 		//The fields are unaltered
 	}
 	
