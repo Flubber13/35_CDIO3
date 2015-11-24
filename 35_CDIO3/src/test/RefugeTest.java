@@ -17,7 +17,7 @@ public class RefugeTest {
 		this.player = new Player(1000, "Anders And");
 		this.refuge200 = new Refuge(1, 200);
 		this.refuge0 = new Refuge(2, 0);
-		this.refugeNeg200 = new Refuge(3, 200);
+		this.refugeNeg200 = new Refuge(3, -200);
 	}
 	
 	@After
