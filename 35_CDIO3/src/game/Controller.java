@@ -84,7 +84,6 @@ public class Controller {
 			player.setPosition(dicecup.roll());		// Dice is rolled, and the players position is saved
 			GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());	// Dice is shown on screen
 			GUI.setCar(player.getPosition(), player.getName());		// Car is moved to field
-			GUI.showMessage(player.getName() + Text.landedOn + Text.fieldName[player.getPosition()]);	// Displays which player landed on the field
 			logicField[player.getPosition()].landedOn(player);	// Runs through the operation for the field the player landed on
 			GUI.setBalance(player.getName(), player.getAccount().getBalance()); // Shows current player balance on GUI game board
 			if (player.getAccount().getBalance()==0) 
