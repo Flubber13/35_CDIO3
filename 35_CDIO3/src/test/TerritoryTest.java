@@ -114,7 +114,7 @@ public class TerritoryTest {
 	}
 	
 	@Test //Tests whether or not points are awarded to owner of field after another player lands on this field.
-	public void testLandOnField200Twice() {
+	public void testGetPointsField200() {
 		int expected = 2000;
 		int actual = this.Mickey.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
@@ -132,7 +132,7 @@ public class TerritoryTest {
 	}
 	
 	@Test //Tests whether or not points are awarded to owner of field after another player lands on this field. Twice in a row.
-	public void testLandOnField200Twice() {
+	public void testGetPointsField200Twice() {
 		int expected = 2000;
 		int actual = this.Mickey.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
