@@ -154,7 +154,6 @@ public class Controller {
 	}
 
 	private void createLogicFields(){
-		AbstractField[] logicField = new AbstractField[23];
 		
 		logicField[2] = new Territory(2, 100, 1000);
 		logicField[4] = new Territory(4,300,1500);
