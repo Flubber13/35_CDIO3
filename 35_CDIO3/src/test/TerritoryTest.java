@@ -76,7 +76,7 @@ public class TerritoryTest {
 		
 	}
 	
-	@Test
+	@Test //Tests whether or not points are deducted from a player landing on a field that is already owned
 	public void testLandOnField200() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -94,8 +94,7 @@ public class TerritoryTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
-
+	@Test //Tests whether or not points are deducted from a player landing on a field that is already owned. Twice in a row.
 	public void testLandOnField200Twice() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -114,7 +113,7 @@ public class TerritoryTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
+	@Test //Tests what happens when you land on a field Territory that IS owned and doesn't have rent
 	public void testLandOnField0() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -128,12 +127,12 @@ public class TerritoryTest {
 		//Then have Donald land on this field
 		this.Territory0.landedOn(this.Donald);
 		
-		expected = 1000;
+		expected = 1000; //We expect this unchanged
 		actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
+	@Test //Tests what happens when you land on a field Territory that IS owned and doesn't have rent. Twice in a row.
 	public void testLandOnField0Twice() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -153,7 +152,7 @@ public class TerritoryTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
+	@Test //Tests what happens when you land on a field Territory that IS owned and has negative rent
 	public void testLandOnFieldNeg200() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -173,8 +172,7 @@ public class TerritoryTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
-
+	@Test //Tests what happens when you land on a field Territory that IS owned and has negative rent. Twice in a row.
 	public void testLandOnFieldNeg200Twice() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
