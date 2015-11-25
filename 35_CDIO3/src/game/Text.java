@@ -34,7 +34,7 @@ public class Text {
 	public static String no = "Nej";
 	public static String taxChoice = "Hvor meget vil du betale i skat?";
 	
-	static String[] fieldName = {null,"Start","Tribe Encampment","Goldmine","Crater","Second Sail","Mountain","Monastery",
+	public static String[] fieldName = {null,"Start","Tribe Encampment","Goldmine","Crater","Second Sail","Mountain","Monastery",
 								"Cold Dessert","Sea Grover","Black Cave","Huts int the Mountian","The Warewall","Caravan",
 								"Mountain Village","The Buccaneers","South Citdal","Walled City","Palace Gates","The Pit",
 								"Tower","Privateer Armade","Castle"};
