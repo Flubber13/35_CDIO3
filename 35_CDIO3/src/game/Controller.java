@@ -28,16 +28,16 @@ public class Controller {
 
 	public void run() {
 
-		createCars();
-
-		// Set up the fields on the game board 
-		gameboard.createGuiFields();
-		createLogicFields();
 		
 
+		// Set up the game board 
+		gameboard.createGuiFields();
+		createLogicFields();
+		createCars();
+		
 		// Determines the number of players in the game
 		numOfPlayers = GUI.getUserInteger(Text.howManyPlayers, 2, 6);
-		activePlayers = numOfPlayers;
+		activePlayers = numOfPlayers;	
 
 		// This loop adds the determined number of players to the game
 		for (int i = 0; i < numOfPlayers; i++) {
@@ -47,22 +47,18 @@ public class Controller {
 				GUI.showMessage(Text.nameInvalid);
 				name[i] = GUI.getUserString(Text.enterName[i]);
 			}
-
 			for (int j = 1; j <= i; j++){
 				while(name[i].equals(name[i-j])) {
 					GUI.showMessage(Text.nameTaken);
 					name[i] = GUI.getUserString(Text.enterName[i]);
 				}
-
 			}
-
-			player[i] = new Player(30000,name[i]);		// Player gets balance and a name chosen by user
-
+			player[i] = new Player(30000,name[i]);		// Player gets balance and the name chosen by the user
 			GUI.addPlayer(player[i].getName(), player[i].getAccount().getBalance(),car[i]);	// Player is added to board	
 			GUI.setCar(1, player[i].getName());	// Players car is added to board
 		}
 
-		// This loop gives all active players a turn
+		// This loop gives all active players a turn, until only one player is left
 		while(activePlayers>1){
 			for (int i = 0; i < numOfPlayers; i++){
 				playerTurn(player[i]);
@@ -85,14 +81,15 @@ public class Controller {
 			GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());	// Dice is shown on screen
 			GUI.setCar(player.getPosition(), player.getName());		// Car is moved to field
 			GUI.showMessage(player.getName() + Text.landedOn + Text.fieldName[player.getPosition()]);	// Displays which player landed on the field
-			logicField[player.getPosition()].landedOn(player);	// Runs through the operation for the field the player landed on
+			logicField[player.getPosition()].landedOn(player);
+			logicField[player.getPosition()].landedOn(player);	// Runs the operation for the field the player landed on
 			GUI.setBalance(player.getName(), player.getAccount().getBalance()); // Shows current player balance on GUI game board
 			if (player.getAccount().getBalance()==0) 
 				bankRupt(player);	// Player is removed from the game if their balance is 0, after their turn.
 		}
 	}
 
-	// Removes all properties and cars from player
+	// Removes all properties and cars from player, and subtracts 1 from the variable activePlayers
 	private void bankRupt(Player player){
 		GUI.showMessage(player.getName()+Text.bankrupt);
 		GUI.removeAllCars(player.getName());
@@ -111,7 +108,6 @@ public class Controller {
 			}
 		}	
 	}
-
 
 	// This method set a player to be the winner if he/she is the only active player in the game
 	private void setWinner(Player player){
@@ -155,8 +151,6 @@ public class Controller {
 	}
 
 	private void createLogicFields(){
-		AbstractField[] logicField = new AbstractField[23];
-		
 		logicField[2] = new Territory(2, 100, 1000);
 		logicField[4] = new Territory(4,300,1500);
 		logicField[6] = new Territory(6,500,2000);
@@ -178,7 +172,8 @@ public class Controller {
 		logicField[17] = new Refuge(17,5000);
 		logicField[3] = new Tax(3);
 		logicField[13] = new Tax(13);
-		
+
 	}
 }
+
 
