@@ -113,6 +113,44 @@ public class TerritoryTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
+	@Test //Tests whether or not points are awarded to owner of field after another player lands on this field.
+	public void testLandOnField200Twice() {
+		int expected = 2000;
+		int actual = this.Mickey.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		//Perform the action to be tested
+		
+		//First set Mickey as owner
+		this.Territory200.setOwner(this.Mickey);
+		
+		//Then have Donald land on this field
+		this.Territory200.landedOn(this.Donald);
+		expected = 2000 + 200;
+		actual = this.Mickey.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test //Tests whether or not points are awarded to owner of field after another player lands on this field. Twice in a row.
+	public void testLandOnField200Twice() {
+		int expected = 2000;
+		int actual = this.Mickey.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		//Perform the action to be tested
+		
+		//First set Mickey as owner
+		this.Territory200.setOwner(this.Mickey);
+		
+		//Then have Donald land on this field (TWICE IN A ROW! AWWW MAN THATS BAD LUCK!)
+		this.Territory200.landedOn(this.Donald);
+		this.Territory200.landedOn(this.Donald);
+		
+		expected = 2000 + 200 + 200;
+		actual = this.Mickey.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
 	@Test //Tests what happens when you land on a field Territory that IS owned and doesn't have rent
 	public void testLandOnField0() {
 		int expected = 1000;
