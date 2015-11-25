@@ -39,7 +39,7 @@ public class RefugeTest {
 		Assert.assertTrue(this.refugeNeg200 instanceof Refuge);
 	}
 	
-	@Test
+	@Test //Tests if you get points by landing on a Refuge field
 	public void testLandOnField200() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -51,8 +51,7 @@ public class RefugeTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
-
+	@Test //Tests if you get points by landing on a Refuge field twice in a row
 	public void testLandOnField200Twice() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -66,7 +65,7 @@ public class RefugeTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
+	@Test //Tests what happens when you land on a Refuge that awards 0 points
 	public void testLandOnField0() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -80,7 +79,7 @@ public class RefugeTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
+	@Test //Tests what happens when you land on a Refuge that awards 0 points
 	public void testLandOnField0Twice() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -95,7 +94,7 @@ public class RefugeTest {
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
+	@Test //Tests whether or not a negative amount of points can be awarded when you land on a Refuge
 	public void testLandOnFieldNeg200() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -105,13 +104,12 @@ public class RefugeTest {
 		this.refugeNeg200.landedOn(this.Donald);
 		
 		//It is not possible to deposit a negative amount
-		expected = 1000;
+		expected = 1000; //We expect balance to be unchanged
 		actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
 	
-	@Test
-
+	@Test //Tests whether or not a negative amount of points can be awarded when you land on a Refuge twice in a row
 	public void testLandOnFieldNeg200Twice() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
@@ -122,7 +120,7 @@ public class RefugeTest {
 		this.refugeNeg200.landedOn(this.Donald);
 		
 		//It is still not possible to deposit a negative amount
-		expected = 1000;
+		expected = 1000; //We expect balance to be unchanged
 		actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
