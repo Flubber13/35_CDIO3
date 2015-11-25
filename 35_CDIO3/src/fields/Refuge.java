@@ -5,7 +5,6 @@ import game.Player;
 public class Refuge extends AbstractField {
 
 	int bonus;
-	int place;
 
 	public Refuge(int place,int bonus){
 		this.place=place;
@@ -18,6 +17,8 @@ public class Refuge extends AbstractField {
 			player.getAccount().addBalance(bonus);	
 		}
 	}
+
+
 
 	//	7.	Monastery - Refuge
 	//	17.	Walled City – refuge

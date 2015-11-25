@@ -8,11 +8,10 @@ public class Fleet extends AbstractOwnables{
 
 	int rent = 500;
 	final int PRICE = 4000;
-	int place;
 
 	@Override
 	public int getRent() {
-		return rent;
+		return rent; 
 	}
 
 	// Fleet constructor with a parameter for its place on the game board 

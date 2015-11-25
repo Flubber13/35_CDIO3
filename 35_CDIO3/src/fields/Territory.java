@@ -6,10 +6,7 @@ import game.Text;
 
 public class Territory extends AbstractOwnables {
 
-
-	int rent;
-	int place;
-
+	
 	public Territory(int place, int rent, int price){
 		this.place=place;
 		this.rent=rent;

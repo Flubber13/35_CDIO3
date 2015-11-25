@@ -25,7 +25,7 @@ public class Text {
 	
 	public static String rentRoll = " kast terningerne for at bestemme lejen";
 	
-	static String bankRobed = " du er gået bankerot! Du mister nu alle dine grunde, og de vil blive sat til salg på ny";
+	static String bankrupt = " du er gået bankerot! Du mister nu alle dine grunde, og de vil blive sat til salg på ny";
 	
 	public static String laborRent = "Lejen du skal betale er: 100 x ";
 	

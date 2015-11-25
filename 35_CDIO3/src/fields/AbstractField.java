@@ -5,7 +5,19 @@ import game.Player;
 public abstract class AbstractField {
 	
 	public abstract void landedOn(Player player);
+	public Player getOwner(){
+		return null;
+	};
+	public void setOwner(Player owner){};
+	public void removeOwner(){};
 	
+	//	public boolean isOwnable(){
+//		return false;
+//	}
+	
+	int place;
+
+
 	
 	/*
 	1.	START

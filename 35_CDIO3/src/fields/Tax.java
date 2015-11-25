@@ -9,7 +9,6 @@ public class Tax extends AbstractField{
 	int taxAmount3 = 2000;
 	int taxAmount13 = 4000;
 	int taxRate = 10;
-	int place;
 
 	public Tax(int place){
 		this.place=place;
@@ -34,6 +33,21 @@ public class Tax extends AbstractField{
 	
 		}
 	}
+
+
+	@Override
+	public Player getOwner() {
+		// Returns nothing because Tax can not have an owner
+		return null;
+	}
+
+
+	@Override
+	public void setOwner(Player owner) {
+		// Does nothing because Tax can not have an owner
+		
+	}
+
 
 
 	//	3.	Gold mine Tax Pay 2000  

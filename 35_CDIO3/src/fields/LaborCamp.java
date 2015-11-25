@@ -7,14 +7,13 @@ import game.Text;
 
 public class LaborCamp extends AbstractOwnables {
 
-	int baseRent = 100;
+	int rent = 100;
 	int price = 2500;
-	int place;
 
 
 	@Override
 	public int getRent() {
-		return baseRent;
+		return rent;
 	}
 
 	public LaborCamp(int place){
@@ -38,8 +37,8 @@ public class LaborCamp extends AbstractOwnables {
 				player.setLastRoll(dicecup.roll());		// Rolls the dice and saves it to player
 				GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());		// Shows dice on screen
 				GUI.showMessage(Text.laborRent+ player.getLastRoll()+ " = " + (player.getLastRoll()*100)); // Shows new rent on screen
-				player.getAccount().addBalance(- player.getLastRoll()*baseRent);	
-				owner.getAccount().addBalance(player.getLastRoll()*baseRent);				
+				player.getAccount().addBalance(- player.getLastRoll()*rent);	
+				owner.getAccount().addBalance(player.getLastRoll()*rent);				
 			} 
 		}
 	}
