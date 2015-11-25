@@ -34,7 +34,7 @@ public class Territory extends AbstractOwnables {
 			}	
 			
 			else{
-				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.pay + rent + Text.to + owner.getName());
+				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.mustPay + rent + Text.to + owner.getName());
 				player.getAccount().addBalance(-rent);
 				owner.getAccount().addBalance(rent);
 				}

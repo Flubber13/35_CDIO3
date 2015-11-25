@@ -42,7 +42,7 @@ public class Fleet extends AbstractOwnables{
 				GUI.showMessage(owner + Text.owned);
 			}
 			else {
-				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.pay + (rent*Math.pow(2, player.getNumFleetOwned())) + Text.to + owner.getName());
+				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.mustPay + (rent*Math.pow(2, player.getNumFleetOwned())) + Text.to + owner.getName());
 				player.getAccount().addBalance(-rent*Math.pow(2, player.getNumFleetOwned()));
 				owner.getAccount().addBalance(rent*Math.pow(2, player.getNumFleetOwned()));
 			}
