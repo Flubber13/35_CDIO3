@@ -13,7 +13,7 @@ public class LaborCamp extends AbstractOwnables {
 	
 	@Override
 	public String toString() {
-		return  Text.fieldName[place] + " LaborCamp [rent=" + rent + ", price=" + price + ", owner=" + owner + ", place=" + place + "]";
+		return  Text.fieldName[place] + " LaborCamp [rent=" + rent + ", newRent=" + newRent + ", price=" + price + ", owner=" + owner + ", place=" + place + "]";
 	}
 
 	@Override
@@ -53,8 +53,8 @@ public class LaborCamp extends AbstractOwnables {
 				player.setLastRoll(dicecup.roll());		// Rolls the dice and saves it to player
 				GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());		// Shows dice on screen
 				
-				newRent = player.getNumLaborOwned()*player.getLastRoll()*rent;
-				GUI.showMessage(Text.laborRent + player.getLastRoll()+ " x "+ player.getNumLaborOwned() +" = " + newRent); // Shows new rent on screen
+				newRent = owner.getNumLaborOwned()*player.getLastRoll()*rent;
+				GUI.showMessage(Text.laborRent + player.getLastRoll()+ " x "+ owner.getNumLaborOwned() +" = " + newRent); // Shows new rent on screen
 				player.getAccount().addBalance(- newRent);	
 				owner.getAccount().addBalance(newRent);				
 			} 
