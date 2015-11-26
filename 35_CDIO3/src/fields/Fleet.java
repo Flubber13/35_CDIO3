@@ -30,16 +30,22 @@ public class Fleet extends AbstractOwnables{
 	 	this is shown below in four different cases. */
 
 	@Override
+	public void setOwner(Player player){
+		this.owner=player;
+		player.addNumFleetOwned(1);
+	}
+	
+	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
 			if(owner == null){
 				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]);
 				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion  + PRICE, Text.yes, Text.no);
 				if(answer == true){
-					this.owner = player;
+					setOwner(player);
 					GUI.setOwner(place, player.getName());
 					player.getAccount().addBalance(-PRICE);
-					player.addNumFleetOwned(1);
+					
 				}
 			}
 			// Proceeds to these 4 possibilities if property is not owned
