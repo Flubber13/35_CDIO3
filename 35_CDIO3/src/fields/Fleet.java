@@ -48,7 +48,7 @@ public class Fleet extends AbstractOwnables{
 				GUI.showMessage(owner.getName()+ Text.landedOn + Text.fieldName[place]+ ". " + Text.youOwn);
 			}
 			else {
-				int newRent =(int)(rent*Math.pow(2, owner.getNumFleetOwned()-1)); // The rent the player depending on number of fleet owned
+				int newRent =(int)(rent*Math.pow(2, (owner.getNumFleetOwned()-1))); // The rent the player depending on number of fleet owned
 				
 				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.mustPay + newRent + Text.to + owner.getName());
 				
