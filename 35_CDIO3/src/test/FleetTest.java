@@ -204,5 +204,65 @@ public class FleetTest { //*** IN PROGRESS ***
 		actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
+	
+	@Test //Tests whether or not points are paid to owner who owns TWO Fleets when a player lands on his field.
+	public void testGetMoneyOnFieldOwnerOwns2() {
+		int expected = 2000;
+		int actual = this.Mickey.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		//Perform the action to be tested
+		
+		//First set Mickey as owner
+		this.Fleet.setOwner(this.Mickey);
+		this.Mickey.setNumFleetOwned(2);
+		
+		//Then have Donald land on one of the fields
+		this.Fleet.landedOn(this.Donald);
+		
+		expected = 2000 + 1000;
+		actual = this.Donald.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test //Tests whether or not points are paid to owner who owns THREE Fleets when a player lands on his field.
+	public void testGetMoneyOnFieldOwnerOwns3() {
+		int expected = 2000;
+		int actual = this.Mickey.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		//Perform the action to be tested
+		
+		//First set Mickey as owner
+		this.Fleet.setOwner(this.Mickey);
+		this.Mickey.setNumFleetOwned(3);
+		
+		//Then have Donald land on one of the fields
+		this.Fleet.landedOn(this.Donald);
+		
+		expected = 2000 + 2000;
+		actual = this.Donald.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test //Tests whether or not points are paid to owner who owns FOUR Fleets when a player lands on his field.
+	public void testGetMoneyOnFieldOwnerOwns4() {
+		int expected = 2000;
+		int actual = this.Mickey.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		//Perform the action to be tested
+		
+		//First set Mickey as owner
+		this.Fleet.setOwner(this.Mickey);
+		this.Mickey.setNumFleetOwned(4);
+		
+		//Then have Donald land on one of the fields
+		this.Fleet.landedOn(this.Donald);
+		
+		expected = 2000 + 4000;
+		actual = this.Donald.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
 
 }
