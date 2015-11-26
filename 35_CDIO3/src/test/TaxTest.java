@@ -46,7 +46,7 @@ public class TaxTest {
 	}
 	
 	@Test
-	public void testPositiont() {
+	public void testPosition3() {
 		// Performs the action to be tested
 		this.miniMouse.setPosition(3);
 		
@@ -55,7 +55,16 @@ public class TaxTest {
 		assertEquals(expected, actual);
 	}
 
-
+	@Test
+	public void testPosition13() {
+		// Performs the action to be tested
+		this.miniMouse.setPosition(13);
+		
+		int expected = 13;
+		int actual = miniMouse.getPosition();
+		assertEquals(expected, actual);
+	}
+	
 	@Test
 	public void testTaxAdded3() {
 		int expected = 10000; 
