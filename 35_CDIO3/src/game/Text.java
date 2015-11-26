@@ -2,10 +2,10 @@ package game;
 
 
 public class Text {
-	/*This class contains all the text output for the game. 
-	Putting it in one class will make is easier to change the language later.*/
+	/* This class contains all the text output for the game. Putting all text in one class, 
+	   will make is easier to change the language later, if desired */
 	
-	//The String in each of the following variables are pulled when referred to in the controller
+	// The String in each of the following variables are pulled when referred to in the controller
 	
 	static String[] enterName = {"Spiller 1 indtast dit navn", "Spiller 2 indtast dit navn",
 								"Spiller 3 indtast dit navn", "Spiller 4 indtast dit navn",
@@ -41,34 +41,13 @@ public class Text {
 
 	public static String owned = "Denne grund er allerede ejet af ";
 
-	public static String pay = " skal derfor betale ";
+	public static String mustPay = " skal derfor betale ";
 
 	public static String to = " til ";
-
-	
-
-	
-	String tile1 = "";
-	String tile2 = "";
-	String tile3 = "";
-	String tile4 = "";
-	String tile5 = "";
-	String tile6 = "";
-	String tile7 = "";
-	String tile8 = "";
-	String tile9 = "";
-	String tile10 = "";
-	String tile11 = "";
-	String tile12 = "";
-	String tile13 = "";
-	String tile14 = "";
-	String tile15 = "";
-	String tile16 = "";
-	String tile17 = "";
-	String tile18 = "";
-	String tile19 = "";
-	String tile20 = "";
-	String tile21 = "";
-	String tile22 = "";
+	public static String payTax = "Betal skat";
+	public static String price = "Pris";
+	public static String rent = "Leje";
+	public static String recieve = "Modtag";
+	public static String numEyes = "antal øjne";
 	
 }
