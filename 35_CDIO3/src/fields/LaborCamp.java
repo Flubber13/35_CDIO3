@@ -27,6 +27,7 @@ public class LaborCamp extends AbstractOwnables {
 	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){
+			GUI.showMessage(player.getName() + Text.landedOn + Text.fieldName[place]);
 			if(owner == null){
 				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion + price, Text.yes, Text.no);
 				if(answer == true){
@@ -35,6 +36,10 @@ public class LaborCamp extends AbstractOwnables {
 					player.getAccount().addBalance(-price);
 				}
 			}
+			else if(player==owner){
+				GUI.showMessage(owner.getName()+ Text.landedOn + Text.fieldName[place]+ ". " + Text.youOwn);
+			}
+			
 			else if(player!=owner){
 				DiceCup dicecup = new DiceCup();
 				GUI.showMessage(player.getName()+Text.rentRoll);	// Tells player to roll again

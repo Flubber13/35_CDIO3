@@ -1,6 +1,8 @@
 package fields;
 
+import desktop_resources.GUI;
 import game.Player;
+import game.Text;
 
 public class Refuge extends AbstractField {
 
@@ -19,6 +21,7 @@ public class Refuge extends AbstractField {
 	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){
+			GUI.showMessage(player.getName() + Text.landedOn + Text.fieldName[place]+ ". " + Text.recieve + " " + bonus);
 			player.getAccount().addBalance(bonus);	
 		}
 	}

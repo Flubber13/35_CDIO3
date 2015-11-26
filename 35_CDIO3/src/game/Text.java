@@ -7,6 +7,7 @@ public class Text {
 	
 	// The String in each of the following variables are pulled when referred to in the controller
 	
+	public static String youOwn = "Du ejer allerede denne grund";
 	static String[] enterName = {"Spiller 1 indtast dit navn", "Spiller 2 indtast dit navn",
 								"Spiller 3 indtast dit navn", "Spiller 4 indtast dit navn",
 								"Spiller 5 indtast dit navn", "Spiller 6 indtast dit navn"};
@@ -15,7 +16,7 @@ public class Text {
 	
 	static String roll = " Tryk OK for at kaste med terningerne";	
 
-	static String landedOn = " landede på: ";
+	public static String landedOn = " landede på: ";
 
 	static String winner = " vinder spillet. Du har nu monopol på hele pladen tilykke med det!";
 	

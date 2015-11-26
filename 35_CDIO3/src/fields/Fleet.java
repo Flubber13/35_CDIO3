@@ -33,6 +33,7 @@ public class Fleet extends AbstractOwnables{
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
 			if(owner == null){
+				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]);
 				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion  + PRICE, Text.yes, Text.no);
 				if(answer == true){
 					this.owner = player;
@@ -44,7 +45,7 @@ public class Fleet extends AbstractOwnables{
 			// Proceeds to these 4 possibilities if property is not owned
 			// Rent that will be charge if 1 Fleet is owned
 			else if (owner == player){
-				GUI.showMessage(owner + Text.owned);
+				GUI.showMessage(owner.getName()+ Text.landedOn + Text.fieldName[place]+ ". " + Text.youOwn);
 			}
 			else {
 				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.mustPay + (rent*Math.pow(2, player.getNumFleetOwned())) + Text.to + owner.getName());

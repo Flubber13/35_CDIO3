@@ -26,9 +26,11 @@ public class Tax extends AbstractField{
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){
 			if (player.getPosition() == 3){ //gold mine tax
+				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]+" "+Text.payTax+": "+taxAmount3);
 				player.getAccount().addBalance(-taxAmount3); //removes 2000 from balance
 			}
 			if (player.getPosition() == 13){ //caravan tax
+				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]);
 				boolean Buttonpressed = GUI.getUserLeftButtonPressed(Text.taxChoice, "-10%", "-4000");{
 					if (Buttonpressed == true){ //We make a boolean called "Buttonpressed" and set it to true or false (decided by GUI input)
 						player.getAccount().addBalance(-player.getAccount().getBalance()/taxRate); //If true "-10%" was pressed, we then remove 10% from balance

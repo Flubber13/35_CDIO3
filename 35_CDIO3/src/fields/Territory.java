@@ -26,7 +26,9 @@ public class Territory extends AbstractOwnables {
 	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
-			if(owner == null){		// Checks if the Territory is owned
+			// There is no owner, player can choose to buy field
+			if(owner == null){
+				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]);
 				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion + price, Text.yes, Text.no);
 				if(answer == true){
 					setOwner(player);
@@ -34,10 +36,12 @@ public class Territory extends AbstractOwnables {
 					player.getAccount().addBalance(-price);
 				}
 			}
+			// Player landed on his own field
 			else if(owner == player){
-				GUI.showMessage(owner + Text.owned);
+				GUI.showMessage(owner.getName()+ Text.landedOn + Text.fieldName[place]+ ". " + Text.youOwn);
 			}	
 			
+			// Player pays rent to the owner 
 			else{
 				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.mustPay + rent + Text.to + owner.getName());
 				player.getAccount().addBalance(-rent);
