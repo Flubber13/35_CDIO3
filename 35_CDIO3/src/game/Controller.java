@@ -29,12 +29,11 @@ public class Controller {
 
 	public void run() {
 
-		
-
 		// Set up the game board 
 		gameboard.createGuiFields();
 		createLogicFields();
 		createCars();
+
 		
 		// Determines the number of players in the game
 		numOfPlayers = GUI.getUserInteger(Text.howManyPlayers, 2, 6);
@@ -105,14 +104,38 @@ public class Controller {
 
 	// Removes player ownership, both from AbstractOwnables Class and from the GUI game board
 	private void removeOwnership(Player player) {
-		for (int i = 1; i < logicField.length; i++) {
-			if(player==logicField[i].getOwner()){
-				GUI.removeOwner(i);
+		for (int i=2; i<=22; i=i+2){
+			if (player==logicField[i].getOwner()){
 				logicField[i].removeOwner();
-				AbstractField abstractField = logicField[i];
-				abstractField.removeOwner();
+				GUI.removeOwner(i);
 			}
-		}	
+		}
+			
+		if(player==logicField[11].getOwner()){
+			logicField[11].removeOwner();
+			GUI.removeOwner(11);}
+		if(player==logicField[19].getOwner()){
+			logicField[19].removeOwner();
+			GUI.removeOwner(19);}
+		if(player==logicField[5].getOwner()){
+			logicField[5].removeOwner();
+			GUI.removeOwner(5);}
+		if(player==logicField[9].getOwner()){
+			logicField[9].removeOwner();
+			GUI.removeOwner(9);}
+		if(player==logicField[15].getOwner()){
+			logicField[15].removeOwner();
+			GUI.removeOwner(15);}
+		if(player==logicField[21].getOwner()){
+			logicField[21].removeOwner();
+			GUI.removeOwner(21);}
+
+//		for (int i = 1; i < logicField.length; i++) {
+//			if(player==logicField[i].getOwner()){
+//				GUI.removeOwner(i);
+//				logicField[i].removeOwner();
+//			}
+//		}	
 	}
 
 	// This method set a player to be the winner if he/she is the only active player in the game
@@ -179,8 +202,14 @@ public class Controller {
 		logicField[17] = new Refuge(17,5000);
 		logicField[3] = new Tax(3);
 		logicField[13] = new Tax(13);
-
+		
 	}
+
+	public void toStringAll(){
+		for (int i = 2 ; i < logicField.length ; i++)
+			System.out.println(logicField[i].toString());
+	}
+
 }
 
 
