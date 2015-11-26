@@ -23,8 +23,12 @@ public class Player {
 		return name;
 	}
 
-	//sets the position of the player
-	public void setPosition(int faceValue) {
+	public void setPosition(int position){
+		this.position = position;
+	}
+	
+	//sets the position of the player based on previous position
+	public void addPosition(int faceValue) {
 		if(position + faceValue > 22)
 			position = position + faceValue -22;
 		else
