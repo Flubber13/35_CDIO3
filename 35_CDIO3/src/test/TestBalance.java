@@ -15,13 +15,30 @@ public class TestBalance {
 	// Preconditions
 	@Before
 	public void setUp() throws Exception {
-		DonaldDuck = new Player(30000, "DonaldDuck");
+	this.DonaldDuck = new Player(3000, "Donald Duck");
+	
 	}
+	
+	@After
+	public void tearDown() throws Exception {
+	this.DonaldDuck = new Player(3000, "Donald Duck");
+	}
+	
 
 	@Test
-	public void negativeTest() {
-		DonaldDuck.getAccount().addBalance(-40000);
-		Assert.assertEquals(0, DonaldDuck.getAccount().getBalance());	
+	public void negativTest(){
+		DonaldDuck.getAccount().addBalance(-4000);
+		Assert.assertEquals(0,DonaldDuck.getAccount().getBalance());
 	}
+	
+	
+	@Test
+	public void positiveTest(){
+		DonaldDuck.getAccount().addBalance(-1000);
+		Assert.assertEquals(2000,DonaldDuck.getAccount().getBalance());
+	}
+	
+	
+	
 
 }
