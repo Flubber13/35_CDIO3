@@ -140,7 +140,7 @@ public class LaborCampTest { //*** IN PROGRESS ***
 		this.LaborCamp.setOwner(Mickey); 
 		this.Mickey.setNumFleetOwned(2);
 		
-		//Have Donald land on field not owned
+		//Have Donald land on this field
 		this.LaborCamp.landedOn(this.Donald);
 		
 		actual = this.Mickey.getAccount().getBalance();
