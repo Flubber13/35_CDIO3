@@ -47,7 +47,7 @@ public class FleetTest { //*** IN PROGRESS ***
 		
 		//Have Donald land on field not owned
 		this.Fleet.landedOn(this.Donald);
-		this.Fleet.setOwner(null); //*** THIS IS CHEATING, HOW  DO I PROPERLY FORCE PLAYER ANSWER?!?! ***
+		this.Fleet.removeOwner(); //*** THIS IS CHEATING, HOW  DO I PROPERLY FORCE PLAYER ANSWER?!?! ***
 		
 		Object expected = null;
 		Object actual = this.Fleet.getOwner();
