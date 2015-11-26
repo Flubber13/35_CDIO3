@@ -54,7 +54,7 @@ public class LaborCamp extends AbstractOwnables {
 				GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());		// Shows dice on screen
 				
 				newRent = player.getNumLaborOwned()*player.getLastRoll()*rent;
-				GUI.showMessage(Text.laborRent + player.getLastRoll()+ " = " + newRent); // Shows new rent on screen
+				GUI.showMessage(Text.laborRent + player.getLastRoll()+ " x "+ player.getNumLaborOwned() +" = " + newRent); // Shows new rent on screen
 				player.getAccount().addBalance(- newRent);	
 				owner.getAccount().addBalance(newRent);				
 			} 
