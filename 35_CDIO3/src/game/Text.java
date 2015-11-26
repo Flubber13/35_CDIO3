@@ -18,7 +18,7 @@ public class Text {
 
 	public static String landedOn = " landede på: ";
 
-	static String winner = " vinder spillet. Du har nu monopol på hele pladen tilykke med det!";
+	static String winner = " vinder spillet. Du har nu monopol på hele pladen, tilykke med det!";
 	
 	static String tie = "Spillet endte uafgjort";
 	
