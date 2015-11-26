@@ -34,6 +34,7 @@ public class Controller {
 		createLogicFields();
 		createCars();
 
+		toStringAll();
 		
 		// Determines the number of players in the game
 		numOfPlayers = GUI.getUserInteger(Text.howManyPlayers, 2, 6);
@@ -77,7 +78,7 @@ public class Controller {
 		if(player.getAccount().getBalance()!=0){
 			GUI.showMessage(player.getName() + Text.roll );		// The player is asked to roll the dice									
 			GUI.removeCar(player.getPosition(), player.getName());		// car is removed from previous position
-			player.setPosition(dicecup.roll());		// Dice is rolled, and the players position is saved
+			player.addPosition(dicecup.roll());		// Dice is rolled, and the players position is saved
 			GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());	// Dice is shown on screen
 			GUI.setCar(player.getPosition(), player.getName());		// Car is moved to field
 			landedOnField(player);	// Runs the operation for the field the player landed on
@@ -86,7 +87,7 @@ public class Controller {
 				bankRupt(player);	// Player is removed from the game if their balance is 0, after their turn.
 		}
 	}
-
+	// Makes sure that that landedOn method does not run on Start field
 	private void landedOnField(Player player) {
 		if(player.getPosition()!=1)	// If position is not 1, landedOn operation will run
 			logicField[player.getPosition()].landedOn(player);
@@ -102,40 +103,14 @@ public class Controller {
 		activePlayers -= 1;
 	}
 
-	// Removes player ownership, both from AbstractOwnables Class and from the GUI game board
+	// Removes player ownership, both from logic fields and GUI fields
 	private void removeOwnership(Player player) {
-		for (int i=2; i<=22; i=i+2){
-			if (player==logicField[i].getOwner()){
+		for (int i=1; i<=22; i++){
+			if(logicField[i] instanceof AbstractOwnables){
 				logicField[i].removeOwner();
 				GUI.removeOwner(i);
 			}
-		}
-			
-		if(player==logicField[11].getOwner()){
-			logicField[11].removeOwner();
-			GUI.removeOwner(11);}
-		if(player==logicField[19].getOwner()){
-			logicField[19].removeOwner();
-			GUI.removeOwner(19);}
-		if(player==logicField[5].getOwner()){
-			logicField[5].removeOwner();
-			GUI.removeOwner(5);}
-		if(player==logicField[9].getOwner()){
-			logicField[9].removeOwner();
-			GUI.removeOwner(9);}
-		if(player==logicField[15].getOwner()){
-			logicField[15].removeOwner();
-			GUI.removeOwner(15);}
-		if(player==logicField[21].getOwner()){
-			logicField[21].removeOwner();
-			GUI.removeOwner(21);}
-
-//		for (int i = 1; i < logicField.length; i++) {
-//			if(player==logicField[i].getOwner()){
-//				GUI.removeOwner(i);
-//				logicField[i].removeOwner();
-//			}
-//		}	
+		}		
 	}
 
 	// This method set a player to be the winner if he/she is the only active player in the game
@@ -179,6 +154,7 @@ public class Controller {
 				.build();
 	}
 
+	// Creates 21 logicField of type AbstractField
 	private void createLogicFields(){
 	
 		logicField[2] = new Territory(2, 100, 1000);
