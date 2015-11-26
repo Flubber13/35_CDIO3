@@ -7,6 +7,11 @@ import game.Text;
 public class Territory extends AbstractOwnables {
 
 	
+	@Override
+	public String toString() {
+		return "Territory [price=" + price + ", owner=" + owner + ", rent=" + rent + ", place=" + place + "]";
+	}
+
 	public Territory(int place, int rent, int price){
 		this.place=place;
 		this.rent=rent;

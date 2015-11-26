@@ -10,6 +10,11 @@ public class Fleet extends AbstractOwnables{
 	final int PRICE = 4000;
 
 	@Override
+	public String toString() {
+		return "Fleet [rent=" + rent + ", PRICE=" + PRICE + ", owner=" + owner + ", place=" + place + "]";
+	}
+	
+	@Override
 	public int getRent() {
 		return rent; 
 	}

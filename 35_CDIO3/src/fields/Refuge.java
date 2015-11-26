@@ -4,6 +4,11 @@ import game.Player;
 
 public class Refuge extends AbstractField {
 
+	@Override
+	public String toString(){
+		return "Refuge [place=" + place + ", bonus=" + bonus + "]";
+	}
+	
 	int bonus;
 
 	public Refuge(int place,int bonus){

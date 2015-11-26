@@ -6,10 +6,14 @@ import game.Player;
 import game.Text;
 
 public class LaborCamp extends AbstractOwnables {
-
+	
 	int rent = 100;
 	int price = 2500;
-
+	
+	@Override
+	public String toString() {
+		return "LaborCamp [rent=" + rent + ", price=" + price + ", owner=" + owner + ", place=" + place + "]";
+	}
 
 	@Override
 	public int getRent() {

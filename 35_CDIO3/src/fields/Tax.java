@@ -6,6 +6,13 @@ import game.Text;
 
 public class Tax extends AbstractField{
 
+	@Override
+	public String toString() {
+		return "Tax [taxAmount3=" + taxAmount3 + ", taxAmount13=" + taxAmount13 + ", taxRate=" + taxRate + ", place="
+				+ place + "]";
+	}
+
+
 	int taxAmount3 = 2000;
 	int taxAmount13 = 4000;
 	int taxRate = 10;
