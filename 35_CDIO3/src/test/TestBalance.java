@@ -9,25 +9,19 @@ import game.Player;
 
 public class TestBalance {
 
-	private Player player;
-	private String name;
+	private Player DonaldDuck;
 
 
 	// Preconditions
 	@Before
 	public void setUp() throws Exception {
-		player = new Player(30000, name);
+		DonaldDuck = new Player(30000, "DonaldDuck");
 	}
 
 	@Test
 	public void test() {
-		player.getAccount().addBalance(-40000);
+		DonaldDuck.getAccount().addBalance(-40000);
+		Assert.assertEquals(0, DonaldDuck.getAccount().getBalance());	
 	}
-
-	@After
-	public void tearDown() throws Exception {
-		Assert.assertEquals(0, player.getAccount().getBalance());
-	}
-
 
 }
