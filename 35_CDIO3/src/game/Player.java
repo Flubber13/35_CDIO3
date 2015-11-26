@@ -40,7 +40,7 @@ public class Player {
 	}
 	
 	public void setNumFleetOwned(int numFleetOwned) {
-		this.numFleetOwned = numFleetOwned;
+		this.numFleetOwned = numFleetOwned
 	}
 
 	public void addNumFleetOwned(int numFleetOwned) {
