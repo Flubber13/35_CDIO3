@@ -19,7 +19,7 @@ public class TestBalance {
 	}
 
 	@Test
-	public void test() {
+	public void negativeTest() {
 		DonaldDuck.getAccount().addBalance(-40000);
 		Assert.assertEquals(0, DonaldDuck.getAccount().getBalance());	
 	}
