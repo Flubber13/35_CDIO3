@@ -9,6 +9,7 @@ public class LaborCamp extends AbstractOwnables {
 	
 	int rent = 100;
 	int price = 2500;
+	int newRent;
 	
 	@Override
 	public String toString() {
@@ -23,7 +24,13 @@ public class LaborCamp extends AbstractOwnables {
 	public LaborCamp(int place){
 		this.place=place;
 	}
-
+	
+	@Override
+	public void setOwner(Player player){
+		this.owner = player;
+		player.addNumLaborOwned(1);
+	}
+	
 	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){
@@ -31,7 +38,7 @@ public class LaborCamp extends AbstractOwnables {
 			if(owner == null){
 				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion + price, Text.yes, Text.no);
 				if(answer == true){
-					this.owner = player;
+					setOwner(player);
 					GUI.setOwner(place, player.getName());
 					player.getAccount().addBalance(-price);
 				}
@@ -45,9 +52,11 @@ public class LaborCamp extends AbstractOwnables {
 				GUI.showMessage(player.getName()+Text.rentRoll);	// Tells player to roll again
 				player.setLastRoll(dicecup.roll());		// Rolls the dice and saves it to player
 				GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());		// Shows dice on screen
-				GUI.showMessage(Text.laborRent+ player.getLastRoll()+ " = " + (player.getLastRoll()*100)); // Shows new rent on screen
-				player.getAccount().addBalance(- player.getLastRoll()*rent);	
-				owner.getAccount().addBalance(player.getLastRoll()*rent);				
+				
+				newRent = player.getNumLaborOwned()*player.getLastRoll()*rent;
+				GUI.showMessage(Text.laborRent + player.getLastRoll()+ " = " + newRent); // Shows new rent on screen
+				player.getAccount().addBalance(- newRent);	
+				owner.getAccount().addBalance(newRent);				
 			} 
 		}
 	}
