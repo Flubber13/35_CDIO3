@@ -44,8 +44,7 @@ public class Fleet extends AbstractOwnables{
 				if(answer == true){
 					setOwner(player);
 					GUI.setOwner(place, player.getName());
-					player.getAccount().addBalance(-PRICE);
-					
+					player.getAccount().addBalance(-PRICE);	
 				}
 			}
 			// Proceeds to these 4 possibilities if property is not owned
