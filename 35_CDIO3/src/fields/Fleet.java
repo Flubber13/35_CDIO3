@@ -48,11 +48,12 @@ public class Fleet extends AbstractOwnables{
 					player.getAccount().addBalance(-PRICE);	
 				}
 			}
-			// Proceeds to these 4 possibilities if property is not owned
-			// Rent that will be charge if 1 Fleet is owned
+			
+			// Player owns the field
 			else if (owner == player){
 				GUI.showMessage(owner.getName()+ Text.landedOn + Text.fieldName[place]+ ". " + Text.youOwn);
 			}
+			// Player pays rent to owner depending on the number of Fleets owned by the owner
 			else {
 				newRent =(int)(rent*Math.pow(2, (owner.getNumFleetOwned()-1))); // The rent the player depending on number of fleet owned
 				
