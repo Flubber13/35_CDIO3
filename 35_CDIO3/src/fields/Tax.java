@@ -8,7 +8,7 @@ public class Tax extends AbstractField{
 
 	@Override
 	public String toString() {
-		return "Tax [taxAmount3=" + taxAmount3 + ", taxAmount13=" + taxAmount13 + ", taxRate=" + taxRate + ", place="
+		return Text.fieldName[place] + " Tax [taxAmount3=" + taxAmount3 + ", taxAmount13=" + taxAmount13 + ", taxRate=" + taxRate + ", place="
 				+ place + "]";
 	}
 

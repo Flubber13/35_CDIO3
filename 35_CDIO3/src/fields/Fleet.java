@@ -12,7 +12,7 @@ public class Fleet extends AbstractOwnables{
 
 	@Override
 	public String toString() {
-		return "Fleet [rent=" + rent + ", PRICE=" + PRICE +", newRent=" + newRent +", owner=" + owner + ", place=" + place + "]";
+		return Text.fieldName[place] + " Fleet [rent=" + rent + ", PRICE=" + PRICE +", newRent=" + newRent +", owner=" + owner + ", place=" + place + "]";
 	}
 	
 	@Override

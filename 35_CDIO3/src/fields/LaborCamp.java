@@ -12,7 +12,7 @@ public class LaborCamp extends AbstractOwnables {
 	
 	@Override
 	public String toString() {
-		return "LaborCamp [rent=" + rent + ", price=" + price + ", owner=" + owner + ", place=" + place + "]";
+		return  Text.fieldName[place] + " LaborCamp [rent=" + rent + ", price=" + price + ", owner=" + owner + ", place=" + place + "]";
 	}
 
 	@Override

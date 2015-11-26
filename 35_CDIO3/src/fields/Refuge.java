@@ -8,7 +8,7 @@ public class Refuge extends AbstractField {
 
 	@Override
 	public String toString(){
-		return "Refuge [place=" + place + ", bonus=" + bonus + "]";
+		return Text.fieldName[place] + " Refuge [place=" + place + ", bonus=" + bonus + "]";
 	}
 	
 	int bonus;
