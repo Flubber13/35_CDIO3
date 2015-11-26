@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import desktop_codebehind.Car;
 import desktop_fields.Ownable;
+import desktop_fields.Start;
 import desktop_resources.GUI;
 import fields.AbstractField;
 import fields.AbstractOwnables;
@@ -80,11 +81,18 @@ public class Controller {
 			player.setPosition(dicecup.roll());		// Dice is rolled, and the players position is saved
 			GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());	// Dice is shown on screen
 			GUI.setCar(player.getPosition(), player.getName());		// Car is moved to field
-			logicField[player.getPosition()].landedOn(player);	// Runs through the operation for the field the player landed on
+			landedOnField(player);	// Runs the operation for the field the player landed on
 			GUI.setBalance(player.getName(), player.getAccount().getBalance()); // Shows current player balance on GUI game board
 			if (player.getAccount().getBalance()==0) 
 				bankRupt(player);	// Player is removed from the game if their balance is 0, after their turn.
 		}
+	}
+
+	private void landedOnField(Player player) {
+		if(player.getPosition()!=1)	// If position is not 1, landedOn operation will run
+			logicField[player.getPosition()].landedOn(player);
+		else // If position is 1, player landed on start and no landedOn operation will run
+			GUI.showMessage(player.getName()+Text.startField); 
 	}
 
 	// Removes all properties and cars from player, and subtracts 1 from the variable activePlayers
@@ -149,7 +157,7 @@ public class Controller {
 	}
 
 	private void createLogicFields(){
-
+	
 		logicField[2] = new Territory(2, 100, 1000);
 		logicField[4] = new Territory(4,300,1500);
 		logicField[6] = new Territory(6,500,2000);

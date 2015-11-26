@@ -49,5 +49,6 @@ public class Text {
 	public static String rent = "Leje";
 	public static String recieve = "Modtag";
 	public static String numEyes = "antal øjne";
+	public static String startField = " landede på Start";
 	
 }
