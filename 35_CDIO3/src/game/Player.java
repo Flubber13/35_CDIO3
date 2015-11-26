@@ -38,10 +38,6 @@ public class Player {
 	public int getNumFleetOwned() {
 		return numFleetOwned;
 	}
-	
-	public void setNumFleetOwned(int numFleetOwned) {
-		this.numFleetOwned = numFleetOwned;
-	}
 
 	public void addNumFleetOwned(int numFleetOwned) {
 		this.numFleetOwned += numFleetOwned;
