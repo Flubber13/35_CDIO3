@@ -16,7 +16,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	
 	@Before
 	public void setUp() throws Exception {
-		this.Donald = new Player(1000, "Donald Duck");
+		this.Donald = new Player(5000, "Donald Duck");
 		this.Mickey = new Player(2000, "Mickey Mouse");
 		this.Fleet = new Fleet(1);
 		this.Fleet2 = new Fleet(2);
@@ -26,7 +26,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	
 	@After
 	public void tearDown() throws Exception {
-		this.Donald = new Player(1000, "Donald Duck");
+		this.Donald = new Player(5000, "Donald Duck");
 		this.Mickey = new Player(2000, "Mickey Mouse");
 		this.Fleet.removeOwner();
 		this.Fleet2.removeOwner();
@@ -72,7 +72,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	
 	@Test //Tests whether or not points are deducted from a player landing on a field that is already owned
 	public void testLandOnField200() {
-		int expected = 1000;
+		int expected = 5000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 		
@@ -83,14 +83,14 @@ public class FleetTest { //*** IN PROGRESS ***
 		
 		//Then have Donald land on this field
 		this.Fleet.landedOn(this.Donald);
-		expected = 1000 - 500;
+		expected = 5000 - 500;
 		actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
 	
 	@Test //Tests whether or not points are deducted from a player landing on a field that is already owned. Twice in a row.
 	public void testLandOnField200Twice() {
-		int expected = 1000;
+		int expected = 5000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 		
@@ -102,7 +102,7 @@ public class FleetTest { //*** IN PROGRESS ***
 		//Then have Donald land on this field (TWICE IN A ROW! AWWW MAN THATS BAD LUCK!)
 		this.Fleet.landedOn(this.Donald);
 		this.Fleet.landedOn(this.Donald);
-		expected = 1000 - 500 - 500;
+		expected = 5000 - 500 - 500;
 		actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
@@ -147,7 +147,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	
 	@Test //Tests whether or not points are deducted from player that lands on a field whose owner owns TWO Fleets.
 	public void testLandOnFieldOwnerOwns2() {
-		int expected = 1000;
+		int expected = 5000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 		
@@ -155,12 +155,52 @@ public class FleetTest { //*** IN PROGRESS ***
 		
 		//First set Mickey as owner
 		this.Fleet.setOwner(this.Mickey);
-		this.Mickey.addNumFleetOwned(3);
+		this.Mickey.setNumFleetOwned(2);
 		
 		//Then have Donald land on one of the fields
 		this.Fleet.landedOn(this.Donald);
 		
-		expected = 1000 - 500 - 500;
+		expected = 5000 - 1000;
+		actual = this.Donald.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test //Tests whether or not points are deducted from player that lands on a field whose owner owns THREE Fleets.
+	public void testLandOnFieldOwnerOwns3() {
+		int expected = 5000;
+		int actual = this.Donald.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		//Perform the action to be tested
+		
+		//First set Mickey as owner
+		this.Fleet.setOwner(this.Mickey);
+		this.Mickey.setNumFleetOwned(3);
+		
+		//Then have Donald land on one of the fields
+		this.Fleet.landedOn(this.Donald);
+		
+		expected = 5000 - 2000;
+		actual = this.Donald.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test //Tests whether or not points are deducted from player that lands on a field whose owner owns FOUR Fleets.
+	public void testLandOnFieldOwnerOwns4() {
+		int expected = 5000;
+		int actual = this.Donald.getAccount().getBalance();
+		Assert.assertEquals(expected, actual);
+		
+		//Perform the action to be tested
+		
+		//First set Mickey as owner
+		this.Fleet.setOwner(this.Mickey);
+		this.Mickey.setNumFleetOwned(4);
+		
+		//Then have Donald land on one of the fields
+		this.Fleet.landedOn(this.Donald);
+		
+		expected = 5000 - 4000;
 		actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
