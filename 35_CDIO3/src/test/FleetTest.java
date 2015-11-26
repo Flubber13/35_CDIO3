@@ -221,7 +221,7 @@ public class FleetTest { //*** IN PROGRESS ***
 		this.Fleet.landedOn(this.Donald);
 		
 		expected = 2000 + 1000;
-		actual = this.Donald.getAccount().getBalance();
+		actual = this.Mickey.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
 	
@@ -241,7 +241,7 @@ public class FleetTest { //*** IN PROGRESS ***
 		this.Fleet.landedOn(this.Donald);
 		
 		expected = 2000 + 2000;
-		actual = this.Donald.getAccount().getBalance();
+		actual = this.Mickey.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
 	
@@ -261,7 +261,7 @@ public class FleetTest { //*** IN PROGRESS ***
 		this.Fleet.landedOn(this.Donald);
 		
 		expected = 2000 + 4000;
-		actual = this.Donald.getAccount().getBalance();
+		actual = this.Mickey.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 	}
 
