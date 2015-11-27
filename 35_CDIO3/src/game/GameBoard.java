@@ -9,7 +9,6 @@ import desktop_fields.Start;
 import desktop_fields.Street;
 import desktop_resources.GUI;
 import fields.AbstractField;
-import fields.AbstractOwnables;
 import fields.Fleet;
 import fields.LaborCamp;
 import fields.Refuge;
