@@ -44,6 +44,8 @@ public class Text {
 
 	public static String mustPay = " skal derfor betale ";
 
+	public static String pay = "Betal ";
+	
 	public static String to = " til ";
 	public static String payTax = "Betal skat";
 	public static String price = "Pris";
