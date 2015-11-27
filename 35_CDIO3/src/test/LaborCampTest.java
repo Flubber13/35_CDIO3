@@ -136,7 +136,7 @@ public class LaborCampTest { //*** IN PROGRESS ***
 		int expected = 2000;
 		Assert.assertEquals(expected, actual);
 		
-		//Have Mickey own a LaborCamp
+		//Have Mickey own a LaborCamp.
 		this.LaborCamp.setOwner(Mickey); 
 		this.Mickey.setNumFleetOwned(2);
 		
