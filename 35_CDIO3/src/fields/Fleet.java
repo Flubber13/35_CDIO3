@@ -36,6 +36,10 @@ public class Fleet extends AbstractOwnables{
 		player.addNumFleetOwned(1);
 	}
 	
+	/*	This method will only run if the position of the player is the same as the position decided in the constructor.
+ 	First it checks if the field is not owned. If so the player will be asked to buy it (player gets YES/No choice).
+ 	If the field is owned the player has to pay rent depending on the number of Fleets owned by that same player
+ 	this is shown below in four different cases. */	
 	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
@@ -49,7 +53,7 @@ public class Fleet extends AbstractOwnables{
 				}
 			}
 			
-			// Player owns the field
+			// Player owns the field, a message is shown 
 			else if (owner == player){
 				GUI.showMessage(owner.getName()+ Text.landedOn + Text.fieldName[place]+ ". " + Text.youOwn);
 			}
