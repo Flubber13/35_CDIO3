@@ -27,14 +27,27 @@ public class TestBalance {
 
 	@Test
 	public void negativTest(){
+		
+		// Performs the action to be tested
 		DonaldDuck.getAccount().addBalance(-4000);
-		Assert.assertEquals(0,DonaldDuck.getAccount().getBalance());
+		
+		int expected = 0;
+		int actual = DonaldDuck.getAccount().getBalance();
+		
+		
+		Assert.assertEquals(expected,actual);
 	}
 
 
 	@Test
 	public void positiveTest(){
+		
+		// Performs the action to be tested
 		DonaldDuck.getAccount().addBalance(-1000);
-		Assert.assertEquals(2000,DonaldDuck.getAccount().getBalance());
+		
+		int expected = 2000;
+		int actual = DonaldDuck.getAccount().getBalance();
+		
+		Assert.assertEquals(expected, actual);
 	}
 }
