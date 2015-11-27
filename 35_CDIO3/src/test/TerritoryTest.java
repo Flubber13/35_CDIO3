@@ -218,7 +218,7 @@ public class TerritoryTest {
 		
 		//Perform the action to be tested
 		
-		//First set Mickey as owner
+		//First set Mickey as owner.
 		this.TerritoryNeg200.setOwner(this.Mickey);
 		
 		//Then have Donald land on this field (TWICE IN A ROW! NOT TOO BAD THO, NOTHING SHOULD HAPPEN RIGHT?)
