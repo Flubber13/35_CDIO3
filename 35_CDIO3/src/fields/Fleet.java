@@ -56,7 +56,7 @@ public class Fleet extends AbstractOwnables{
 			// Player pays rent to owner depending on the number of Fleets owned by the owner
 			else {
 				newRent =(int)(rent*Math.pow(2, (owner.getNumFleetOwned()-1))); // The rent the player depending on number of fleet owned
-				GUI.showMessage(Text.owned + owner.getName() + ", " +  player.getName() + Text.mustPay + newRent + Text.to + owner.getName());
+				GUI.showMessage(player.getName()+ Text.landedOn + Text.fieldName[place]+". " + Text.pay + newRent + Text.to + owner.getName());
 				player.getAccount().addBalance(-newRent);
 				owner.getAccount().addBalance(newRent);
 			}
