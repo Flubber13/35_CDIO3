@@ -24,17 +24,12 @@ public class Controller {
 	Player[] player = new Player[6];
 	DiceCup dicecup = new DiceCup(); 
 	GameBoard gameboard = new GameBoard();
-	AbstractField[] logicField = new AbstractField[23];
-	Car[] car = new Car[6];
 
 	public void run() { 
 
 		// Set up the game board 
-		gameboard.createGuiFields();
-		createLogicFields();
-		createCars();
-
-		toStringAll();
+		gameboard.setupGuiFields();
+		//createCars();
 
 		// Determines the number of players in the game
 		numOfPlayers = GUI.getUserInteger(Text.howManyPlayers, 2, 6);
@@ -54,8 +49,8 @@ public class Controller {
 					name[i] = GUI.getUserString(Text.enterName[i]);
 				}
 			}
-			player[i] = new Player(30000,name[i]);		// Player gets balance and the name chosen by the user
-			GUI.addPlayer(player[i].getName(), player[i].getAccount().getBalance(),car[i]);	// Player is added to board	
+			player[i] = new Player(30000,name[i]);		// Player gets a balance and the name chosen by the user
+			GUI.addPlayer(player[i].getName(), player[i].getAccount().getBalance(),gameboard.getCar()[i]);	// Player is added to board	
 			GUI.setCar(1, player[i].getName());	// Players car is added to board
 		}
 
@@ -68,7 +63,7 @@ public class Controller {
 				if(activePlayers==1)break; // Breaks out of the loop, if only one active player is left
 			}
 			for (int i = 0; i < numOfPlayers; i++){
-				setWinner(player[i]);	// Checks if only one player is left, and sets the player as winner
+				setWinner(player[i]);	// Checks if only one player is left, then sets the player as winner
 			}			
 		}	
 	}
@@ -90,7 +85,7 @@ public class Controller {
 	// Makes sure that that landedOn method does not run on Start field
 	private void landedOnField(Player player) {
 		if(player.getPosition()!=1)	// If position is not 1, landedOn operation will run
-			logicField[player.getPosition()].landedOn(player);
+			gameboard.getLogicField()[player.getPosition()].landedOn(player);
 		else // If position is 1, player landed on start and no landedOn operation will run
 			GUI.showMessage(player.getName()+Text.startField); 
 	}
@@ -103,12 +98,12 @@ public class Controller {
 		activePlayers -= 1;
 	}
 
-	// Removes player ownership, both from logic fields and GUI fields
+	// Removes player ownership, both from logic fields and GUI fields, if the player is the owner
 	private void removeOwnership(Player player) {
 		for (int i=1; i<=22; i++){
-			if(logicField[i] instanceof AbstractOwnables){
-				if (logicField[i].getOwner() == player){
-					logicField[i].removeOwner();
+			if(gameboard.getLogicField()[i] instanceof AbstractOwnables){
+				if (gameboard.getLogicField()[i].getOwner() == player){
+					gameboard.getLogicField()[i].removeOwner();
 					GUI.removeOwner(i);
 				}
 			}
@@ -122,70 +117,11 @@ public class Controller {
 		}
 	}
 
-	// This method creates 6 cars, one for every possible player
-	private void createCars(){
-		car[0] =  new Car.Builder()			// Car is saved in car array index 0
-				.typeRacecar()				// Type is set 
-				.patternFill()				// Color pattern is set 
-				.primaryColor(Color.RED)	// Color is set 
-				.build();					// Car is build
-		car[1] =  new Car.Builder()
-				.typeTractor()
-				.patternFill()
-				.primaryColor(Color.GREEN)
-				.build();
-		car[2] =  new Car.Builder()
-				.typeUfo()
-				.patternFill()
-				.primaryColor(Color.ORANGE)
-				.build();
-		car[3] =  new Car.Builder()
-				.typeRacecar()
-				.patternFill()
-				.primaryColor(Color.YELLOW)
-				.build();
-		car[4] =  new Car.Builder()
-				.typeTractor()
-				.patternFill()
-				.primaryColor(Color.BLUE)
-				.build();
-		car[5] =  new Car.Builder()
-				.typeUfo()
-				.patternFill()
-				.primaryColor(Color.BLACK)
-				.build();
-	}
-
-	// Creates 21 logicField of type AbstractField
-	private void createLogicFields(){
-
-		logicField[2] = new Territory(2, 100, 1000);
-		logicField[4] = new Territory(4,300,1500);
-		logicField[6] = new Territory(6,500,2000);
-		logicField[8] = new Territory(8,700,3000);
-		logicField[10] = new Territory(10,1000,4000);
-		logicField[12] = new Territory(12,1300,4300);
-		logicField[14] = new Territory(14,1600,4750);
-		logicField[16] = new Territory(16,2000,5000);
-		logicField[18] = new Territory(18,2600,5500);
-		logicField[20] = new Territory(20,3200,6000);
-		logicField[22] = new Territory(22,4000,8000);
-		logicField[11] = new LaborCamp(11);
-		logicField[19] = new LaborCamp(19);
-		logicField[5] = new Fleet(5);
-		logicField[9] = new Fleet(9);
-		logicField[15] = new Fleet(15);
-		logicField[21] = new Fleet(21);	
-		logicField[7] = new Refuge(7,500);
-		logicField[17] = new Refuge(17,5000);
-		logicField[3] = new Tax(3);
-		logicField[13] = new Tax(13);
-
-	}
-
-	public void toStringAll(){
-		for (int i = 2 ; i < logicField.length ; i++)
-			System.out.println(logicField[i].toString());
+	public String toString(){
+		String returnString = null;
+		for (int i = 2 ; i < gameboard.getLogicField().length ; i++)
+			returnString += "[" + gameboard.getLogicField()[i].toString() + "] ";
+		return returnString;
 	}
 
 }
