@@ -18,13 +18,13 @@ import game.Player;
 
 public class TaxTest {
 
-	private Player miniMouse;
+	private Player minieMouse;
 	private Tax tax3;
 	private Tax tax13;
 
 	@Before
 	public void setUp() throws Exception {
-		this.miniMouse = new Player(10000,"Mini");
+		this.minieMouse = new Player(10000,"Mini");
 		this.tax3 = new Tax(3);
 		this.tax13 = new Tax(13);
 	}
@@ -36,7 +36,7 @@ public class TaxTest {
 	
 	@Test
 	public void testEntities() {
-		Assert.assertNotNull(this.miniMouse);
+		Assert.assertNotNull(this.minieMouse);
 
 		Assert.assertNotNull(this.tax3);
 		Assert.assertNotNull(this.tax13);
@@ -48,64 +48,64 @@ public class TaxTest {
 	@Test
 	public void testPosition3() {
 		// Performs the action to be tested
-		this.miniMouse.setPosition(3);
+		this.minieMouse.setPosition(3);
 		
 		int expected = 3;
-		int actual = miniMouse.getPosition();
+		int actual = minieMouse.getPosition();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testPosition13() {
 		// Performs the action to be tested
-		this.miniMouse.setPosition(13);
+		this.minieMouse.setPosition(13);
 		
 		int expected = 13;
-		int actual = miniMouse.getPosition();
+		int actual = minieMouse.getPosition();
 		assertEquals(expected, actual);
 	}
 	
 	@Test
 	public void testTaxAdded3() {
 		int expected = 10000; 
-		int actual = this.miniMouse.getAccount().getBalance();
+		int actual = this.minieMouse.getAccount().getBalance();
 		assertEquals(expected, actual);	
 
 		// Performs the action to be tested
-		this.miniMouse.setPosition(3);
-		this.tax3.landedOn(miniMouse); 
+		this.minieMouse.setPosition(3);
+		this.tax3.landedOn(minieMouse); 
 
 		expected = 10000 - 2000;
-		actual = miniMouse.getAccount().getBalance();
+		actual = minieMouse.getAccount().getBalance();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testTax13_10procent() {
 		int expected = 10000; 
-		int actual = this.miniMouse.getAccount().getBalance();
+		int actual = this.minieMouse.getAccount().getBalance();
 		assertEquals(expected, actual);	
 
 		// Performs the action to be tested
-		this.tax13.pay10procent(miniMouse);
+		this.tax13.pay10procent(minieMouse);
 
 		expected = 10000 - 1000;
-		actual = miniMouse.getAccount().getBalance();
+		actual = minieMouse.getAccount().getBalance();
 		assertEquals(expected, actual);
 	}
 
 	@Test
 	public void testTax13_4000() {
 		int expected = 10000; 
-		int actual = this.miniMouse.getAccount().getBalance();
+		int actual = this.minieMouse.getAccount().getBalance();
 		assertEquals(expected, actual);	
 
 		// Performs the action to be tested
-		this.tax13.pay4000(miniMouse);
+		this.tax13.pay4000(minieMouse);
 		
 
 		expected = 10000 - 4000;
-		actual = miniMouse.getAccount().getBalance();
+		actual = minieMouse.getAccount().getBalance();
 		assertEquals(expected, actual);
 	}
 
