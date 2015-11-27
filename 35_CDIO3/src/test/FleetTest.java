@@ -45,9 +45,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	@Test //Tests if a Fleet that is NOT owned actually is NOT owned
 	public void testLandOnFieldNotOwned() {
 		
-		//Have Donald land on field not owned
-		this.Fleet.landedOn(this.Donald);
-		this.Fleet.removeOwner(); //*** THIS IS CHEATING, HOW  DO I PROPERLY FORCE PLAYER ANSWER?!?! ***
+		// Since no player has been set to own this field, we expect owner to be null
 		
 		Object expected = null;
 		Object actual = this.Fleet.getOwner();
