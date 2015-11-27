@@ -100,7 +100,7 @@ public class TaxTest {
 		int actual = this.minieMouse.getAccount().getBalance();
 		assertEquals(expected, actual);	
 
-		// Performs the action to be tested
+		// Performs the action to be tested.
 		this.tax13.pay4000(minieMouse);
 		
 
