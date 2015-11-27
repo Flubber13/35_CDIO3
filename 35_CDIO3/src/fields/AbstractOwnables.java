@@ -7,19 +7,14 @@ public abstract class AbstractOwnables extends AbstractField{
 	int price;
 	Player owner;
 	int rent;
-	
-//	@Override 
-//	public boolean isOwnable(){
-//		return true;
-//	}
-	
+		
 	public void setPrice(int price){
 		this.price=price;
 	}
 	
 	@Override
-	public void setOwner(Player owner){
-		this.owner=owner;
+	public void setOwner(Player player){
+		this.owner=player;
 	}
 	
 	public Player getOwner() {
