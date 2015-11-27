@@ -115,7 +115,7 @@ public class RefugeTest {
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 		
-		//Perform the action to be tested
+		//Perform the action to be tested.
 		this.refugeNeg200.landedOn(this.Donald);
 		this.refugeNeg200.landedOn(this.Donald);
 		
