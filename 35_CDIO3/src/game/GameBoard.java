@@ -18,8 +18,17 @@ import fields.Territory;
 
 public class GameBoard {
 
+	private AbstractField[] logicField = new AbstractField[23];
+	private Car[] car = new Car[6];
+
+
+	public GameBoard (){
+		createLogicFields();
+		createCars();
+	}
+
 	// This method creates 22 new fields for the game board, and places them in the array 'Field[] fields'
-	public void createGuiFields(){
+	public void setupGuiFields(){
 
 		Field[] fields = new Field[22];
 		//The first field is created
@@ -198,33 +207,71 @@ public class GameBoard {
 
 	} 
 
+	public AbstractField[] createLogicFields(){
+		getLogicField()[2] = new Territory(2, 100, 1000);
+		getLogicField()[4] = new Territory(4,300,1500);
+		getLogicField()[6] = new Territory(6,500,2000);
+		getLogicField()[8] = new Territory(8,700,3000);
+		getLogicField()[10] = new Territory(10,1000,4000);
+		getLogicField()[12] = new Territory(12,1300,4300);
+		getLogicField()[14] = new Territory(14,1600,4750);
+		getLogicField()[16] = new Territory(16,2000,5000);
+		getLogicField()[18] = new Territory(18,2600,5500);
+		getLogicField()[20] = new Territory(20,3200,6000);
+		getLogicField()[22] = new Territory(22,4000,8000);
+		getLogicField()[11] = new LaborCamp(11);
+		getLogicField()[19] = new LaborCamp(19);
+		getLogicField()[5] = new Fleet(5);
+		getLogicField()[9] = new Fleet(9);
+		getLogicField()[15] = new Fleet(15);
+		getLogicField()[21] = new Fleet(21);	
+		getLogicField()[7] = new Refuge(7,500);
+		getLogicField()[17] = new Refuge(17,5000);
+		getLogicField()[3] = new Tax(3);
+		getLogicField()[13] = new Tax(13);
+		return getLogicField();
+	}
 
+	// This method creates 6 cars, one for every possible player
+	public Car[] createCars(){
+		car[0] =  new Car.Builder()			// Car is saved in car array index 0
+				.typeRacecar()				// Type is set 
+				.patternFill()				// Color pattern is set 
+				.primaryColor(Color.RED)	// Color is set 
+				.build();					// Car is build
+		car[1] =  new Car.Builder()
+				.typeTractor()
+				.patternFill()
+				.primaryColor(Color.GREEN)
+				.build();
+		car[2] =  new Car.Builder()
+				.typeUfo()
+				.patternFill()
+				.primaryColor(Color.ORANGE)
+				.build();
+		car[3] =  new Car.Builder()
+				.typeRacecar()
+				.patternFill()
+				.primaryColor(Color.YELLOW)
+				.build();
+		car[4] =  new Car.Builder()
+				.typeTractor()
+				.patternFill()
+				.primaryColor(Color.BLUE)
+				.build();
+		car[5] =  new Car.Builder()
+				.typeUfo()
+				.patternFill()
+				.primaryColor(Color.BLACK)
+				.build();
+		return getCar();
+	}
+
+	public AbstractField[] getLogicField() {
+		return logicField;
+	}
 	
-//	public void createLogicFields(){
-//		AbstractField[] logicField = new AbstractField[23];
-//		
-//		logicField[2] = new Territory(2, 100, 1000);
-//		logicField[4] = new Territory(4,300,1500);
-//		logicField[6] = new Territory(6,500,2000);
-//		logicField[8] = new Territory(8,700,3000);
-//		logicField[10] = new Territory(10,1000,4000);
-//		logicField[12] = new Territory(12,1300,4300);
-//		logicField[14] = new Territory(14,1600,4750);
-//		logicField[16] = new Territory(16,2000,5000);
-//		logicField[18] = new Territory(18,2600,5500);
-//		logicField[20] = new Territory(20,3200,6000);
-//		logicField[22] = new Territory(22,4000,8000);
-//		logicField[11] = new LaborCamp(11);
-//		logicField[19] = new LaborCamp(19);
-//		logicField[5] = new Fleet(5);
-//		logicField[9] = new Fleet(9);
-//		logicField[15] = new Fleet(15);
-//		logicField[21] = new Fleet(21);	
-//		logicField[7] = new Refuge(7,500);
-//		logicField[17] = new Refuge(17,5000);
-//		logicField[3] = new Tax(3);
-//		logicField[13] = new Tax(13);
-//		
-//	}
-
+	public Car[] getCar() {
+		return car;
+	}
 }
