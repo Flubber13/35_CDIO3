@@ -129,7 +129,7 @@ public class FleetTest { //*** IN PROGRESS ***
 		int actual = this.Mickey.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 		
-		//Perform the action to be tested
+		//Perform the action to be tested.
 		
 		//First set Mickey as owner
 		this.Fleet.setOwner(this.Mickey);
