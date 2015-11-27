@@ -3,17 +3,10 @@ package test;
 import static org.junit.Assert.*;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
-
-import desktop_resources.GUI;
-import fields.AbstractField;
-import fields.Refuge;
 import fields.Tax;
-import fields.Territory;
 import game.Player;
 
 public class TaxTest {
