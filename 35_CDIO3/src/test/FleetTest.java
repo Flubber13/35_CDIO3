@@ -71,7 +71,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	}
 	
 	@Test //Tests whether or not points are deducted from a player landing on a field that is already owned
-	public void testLandOnField200() {
+	public void testLandOnField() {
 		int expected = 5000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
@@ -89,7 +89,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	}
 	
 	@Test //Tests whether or not points are deducted from a player landing on a field that is already owned. Twice in a row.
-	public void testLandOnField200Twice() {
+	public void testLandOnFieldTwice() {
 		int expected = 5000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
@@ -108,7 +108,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	}
 	
 	@Test //Tests whether or not points are awarded to owner of field after another player lands on this field.
-	public void testGetPointsField200() {
+	public void testGetPointsField() {
 		int expected = 2000;
 		int actual = this.Mickey.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
@@ -126,7 +126,7 @@ public class FleetTest { //*** IN PROGRESS ***
 	}
 	
 	@Test //Tests whether or not points are awarded to owner of field after another player lands on this field. Twice in a row.
-	public void testGetPointsField200Twice() {
+	public void testGetPointsFieldTwice() {
 		int expected = 2000;
 		int actual = this.Mickey.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
