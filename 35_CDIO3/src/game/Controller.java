@@ -27,7 +27,7 @@ public class Controller {
 	AbstractField[] logicField = new AbstractField[23];
 	Car[] car = new Car[6];
 
-	public void run() {
+	public void run() { 
 
 		// Set up the game board 
 		gameboard.createGuiFields();
@@ -35,7 +35,7 @@ public class Controller {
 		createCars();
 
 		toStringAll();
-		
+
 		// Determines the number of players in the game
 		numOfPlayers = GUI.getUserInteger(Text.howManyPlayers, 2, 6);
 		activePlayers = numOfPlayers;	
@@ -107,8 +107,10 @@ public class Controller {
 	private void removeOwnership(Player player) {
 		for (int i=1; i<=22; i++){
 			if(logicField[i] instanceof AbstractOwnables){
-				logicField[i].removeOwner();
-				GUI.removeOwner(i);
+				if (logicField[i].getOwner() == player){
+					logicField[i].removeOwner();
+					GUI.removeOwner(i);
+				}
 			}
 		}		
 	}
@@ -156,7 +158,7 @@ public class Controller {
 
 	// Creates 21 logicField of type AbstractField
 	private void createLogicFields(){
-	
+
 		logicField[2] = new Territory(2, 100, 1000);
 		logicField[4] = new Territory(4,300,1500);
 		logicField[6] = new Territory(6,500,2000);
@@ -178,7 +180,7 @@ public class Controller {
 		logicField[17] = new Refuge(17,5000);
 		logicField[3] = new Tax(3);
 		logicField[13] = new Tax(13);
-		
+
 	}
 
 	public void toStringAll(){
