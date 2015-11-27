@@ -5,23 +5,24 @@ import game.Player;
 import game.Text;
 
 public class Tax extends AbstractField{
-
+	
+	int taxAmount3 = 2000;
+	int taxAmount13 = 4000;
+	int taxRate = 10;
+	
+	public Tax(int place){
+		this.place=place;
+	}
+	
 	@Override
 	public String toString() {
 		return Text.fieldName[place] + " Tax [taxAmount3=" + taxAmount3 + ", taxAmount13=" + taxAmount13 + ", taxRate=" + taxRate + ", place="
 				+ place + "]";
 	}
-
-
-	int taxAmount3 = 2000;
-	int taxAmount13 = 4000;
-	int taxRate = 10;
-
-	public Tax(int place){
-		this.place=place;
-	}
 	
-	
+	/*	This method contains two different parts. First part is for a tax field that collects a certain fixed tax. 
+	 	The second part is for the tax field where the player gets a choice, to either pay 10% or 4000
+	 	The first part only runs if the player position is 3, and the second i its 13 */
 	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){
@@ -32,11 +33,11 @@ public class Tax extends AbstractField{
 			if (player.getPosition() == 13){ //caravan tax
 				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]);
 				boolean Buttonpressed = GUI.getUserLeftButtonPressed(Text.taxChoice, "-10%", "-4000");{
-					if (Buttonpressed == true){ //We make a boolean called "Buttonpressed" and set it to true or false (decided by GUI input)
-						pay10procent(player); //If true "-10%" was pressed, we then remove 10% from balance
+					if (Buttonpressed){ //We make a boolean called "Buttonpressed"  if the boolean is true, the player pressed 10%
+						pay10procent(player); // 10% is remove from balance
 					}
 					else 
-						pay4000(player); // -4000 was pressed, removes 4000 from balance
+						pay4000(player); // -4000 was pressed, 4000 is removed from balance
 				}
 			}
 	

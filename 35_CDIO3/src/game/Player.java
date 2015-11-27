@@ -4,12 +4,12 @@ package game;
 public class Player {
 
 	private String name;
-	private BankAccount account;
 	private int position = 1;
 	private int numFleetOwned;
 	private int lastRoll;
 	private int numLaborOwned;
-
+	private BankAccount account;
+	
 	// A player constructor with a balance and a name
 	public Player(int startBalance, String name) {
 		this.account = new BankAccount(startBalance);

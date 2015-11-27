@@ -1,18 +1,7 @@
 package game;
 
-import java.awt.Color;
-
-import desktop_codebehind.Car;
-import desktop_fields.Ownable;
-import desktop_fields.Start;
 import desktop_resources.GUI;
-import fields.AbstractField;
 import fields.AbstractOwnables;
-import fields.Fleet;
-import fields.LaborCamp;
-import fields.Refuge;
-import fields.Tax;
-import fields.Territory;
 import game.GameBoard;
 
 public class Controller {

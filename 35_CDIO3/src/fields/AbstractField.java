@@ -10,6 +10,8 @@ public abstract class AbstractField {
 	public Player getOwner(){
 		return null;
 	};
+	
+	// These empty methods will only be overridden in the sub-class AbstractOwnables
 	public void setOwner(Player owner){};
 	public void removeOwner(){};
 	

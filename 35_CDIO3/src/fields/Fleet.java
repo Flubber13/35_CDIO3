@@ -25,29 +25,23 @@ public class Fleet extends AbstractOwnables{
 		this.place = place;
 	}
 
-	/*	This method will only run if the position of the player is the same as the position decided in the constructor
-	 	First it checks if the field is not owned. If so the player will be asked to buy it(player gets YES/No choice)
-	 	If the field is owned the player has to pay rent depending on the number of Fleets owned by that same player
-	 	this is shown below in four different cases. */
-
 	@Override
 	public void setOwner(Player player){
 		this.owner=player;
 		player.addNumFleetOwned(1);
 	}
 	
-	/*	This method will only run if the position of the player is the same as the position decided in the constructor.
- 	First it checks if the field is not owned. If so the player will be asked to buy it (player gets YES/No choice).
- 	If the field is owned the player has to pay rent depending on the number of Fleets owned by that same player
- 	this is shown below in four different cases. */	
+	/*	This method will only run if the position of the player is the same as the position decided in the Fleet constructor.
+ 		First it checks if the field is not owned. If so the player will be asked to buy it (player gets YES/No choice).
+ 		If the field is owned the player has to pay rent depending on the number of Fleets owned by the owner	*/	
 	@Override
 	public void landedOn(Player player) {
 		if(player.getPosition()==place){	
 			if(owner == null){
-				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]);
-				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion  + PRICE, Text.yes, Text.no);
-				if(answer == true){
-					setOwner(player);
+				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]); // Shows message that player landed Fleet
+				boolean answer = GUI.getUserLeftButtonPressed(Text.buyQuestion  + PRICE, Text.yes, Text.no); // Player gets yes/no choice
+				if(answer == true){		// If player selects yes, boolean is true, and player buys the field
+					setOwner(player);	
 					GUI.setOwner(place, player.getName());
 					player.getAccount().addBalance(-PRICE);	
 				}

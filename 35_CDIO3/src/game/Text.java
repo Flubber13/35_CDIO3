@@ -5,7 +5,7 @@ public class Text {
 	/* This class contains all the text output for the game. Putting all text in one class, 
 	   will make is easier to change the language later, if desired */
 	
-	// The String in each of the following variables are pulled when referred to in the controller
+	// The String in each of the following variables are pulled when referred to in any class
 	
 	public static String youOwn = "Du ejer allerede denne grund";
 	static String[] enterName = {"Spiller 1 indtast dit navn", "Spiller 2 indtast dit navn",
