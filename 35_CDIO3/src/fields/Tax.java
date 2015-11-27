@@ -8,7 +8,7 @@ public class Tax extends AbstractField{
 
 	@Override
 	public String toString() {
-		return "Tax [taxAmount3=" + taxAmount3 + ", taxAmount13=" + taxAmount13 + ", taxRate=" + taxRate + ", place="
+		return Text.fieldName[place] + " Tax [taxAmount3=" + taxAmount3 + ", taxAmount13=" + taxAmount13 + ", taxRate=" + taxRate + ", place="
 				+ place + "]";
 	}
 
@@ -33,28 +33,22 @@ public class Tax extends AbstractField{
 				GUI.showMessage(player.getName()+Text.landedOn+Text.fieldName[place]);
 				boolean Buttonpressed = GUI.getUserLeftButtonPressed(Text.taxChoice, "-10%", "-4000");{
 					if (Buttonpressed == true){ //We make a boolean called "Buttonpressed" and set it to true or false (decided by GUI input)
-						player.getAccount().addBalance(-player.getAccount().getBalance()/taxRate); //If true "-10%" was pressed, we then remove 10% from balance
+						pay10procent(player); //If true "-10%" was pressed, we then remove 10% from balance
 					}
 					else 
-						player.getAccount().addBalance(-taxAmount13); // -4000 was pressed, removes 4000 from balance
+						pay4000(player); // -4000 was pressed, removes 4000 from balance
 				}
 			}
 	
 		}
 	}
 
-
-	@Override
-	public Player getOwner() {
-		// Returns nothing because Tax can not have an owner
-		return null;
+	public void pay10procent(Player player){
+		player.getAccount().addBalance(-player.getAccount().getBalance()/taxRate);
 	}
-
-
-	@Override
-	public void setOwner(Player owner) {
-		// Does nothing because Tax can not have an owner
-		
+	
+	public void pay4000(Player player){
+		player.getAccount().addBalance(-taxAmount13);
 	}
 
 

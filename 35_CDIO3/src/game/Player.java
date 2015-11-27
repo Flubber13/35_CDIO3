@@ -8,6 +8,7 @@ public class Player {
 	private int position = 1;
 	private int numFleetOwned;
 	private int lastRoll;
+	private int numLaborOwned;
 
 	// A player constructor with a balance and a name
 	public Player(int startBalance, String name) {
@@ -23,8 +24,12 @@ public class Player {
 		return name;
 	}
 
-	//sets the position of the player
-	public void setPosition(int faceValue) {
+	public void setPosition(int position){
+		this.position = position;
+	}
+	
+	//sets the position of the player based on previous position
+	public void addPosition(int faceValue) {
 		if(position + faceValue > 22)
 			position = position + faceValue -22;
 		else
@@ -38,9 +43,13 @@ public class Player {
 	public int getNumFleetOwned() {
 		return numFleetOwned;
 	}
+	
+	public void setNumFleetOwned(int numFleetOwned) {
+		this.numFleetOwned = numFleetOwned;
+	}
 
-	public void addNumFleetOwned(int numFleetOwned) {
-		this.numFleetOwned += numFleetOwned;
+	public void addNumFleetOwned(int number) {
+		this.numFleetOwned += number;
 	}
 
 	public int getLastRoll() {
@@ -51,4 +60,11 @@ public class Player {
 		this.lastRoll = lastRoll;
 	}
 
+	public int getNumLaborOwned() {
+		return numLaborOwned;
+	}
+
+	public void addNumLaborOwned(int number){
+		this.numLaborOwned = numLaborOwned + number;
+	}
 }

@@ -18,7 +18,7 @@ public class Text {
 
 	public static String landedOn = " landede på: ";
 
-	static String winner = " vinder spillet. Du har nu monopol på hele pladen tilykke med det!";
+	static String winner = " vinder spillet. Du har nu monopol på hele pladen, tilykke med det!";
 	
 	static String tie = "Spillet endte uafgjort";
 	
@@ -44,12 +44,14 @@ public class Text {
 
 	public static String mustPay = " skal derfor betale ";
 
+	public static String pay = "Betal ";
+	
 	public static String to = " til ";
 	public static String payTax = "Betal skat";
 	public static String price = "Pris";
 	public static String rent = "Leje";
 	public static String recieve = "Modtag";
-	public static String numEyes = "antal øjne";
+	public static String numEyes = "antal øjne x antal Labor Camps ejet";
 	public static String startField = " landede på Start";
 	
 }

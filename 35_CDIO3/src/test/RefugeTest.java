@@ -40,7 +40,7 @@ public class RefugeTest {
 	}
 	
 	@Test //Tests if you get points by landing on a Refuge field
-	public void testLandOnField200() {
+	public void testLandOnField() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
@@ -52,7 +52,7 @@ public class RefugeTest {
 	}
 	
 	@Test //Tests if you get points by landing on a Refuge field twice in a row
-	public void testLandOnField200Twice() {
+	public void testLandOnFieldTwice() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
@@ -95,7 +95,7 @@ public class RefugeTest {
 	}
 	
 	@Test //Tests whether or not a negative amount of points can be awarded when you land on a Refuge
-	public void testLandOnFieldNeg200() {
+	public void testLandOnFieldNeg() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
@@ -110,12 +110,12 @@ public class RefugeTest {
 	}
 	
 	@Test //Tests whether or not a negative amount of points can be awarded when you land on a Refuge twice in a row
-	public void testLandOnFieldNeg200Twice() {
+	public void testLandOnFieldNegTwice() {
 		int expected = 1000;
 		int actual = this.Donald.getAccount().getBalance();
 		Assert.assertEquals(expected, actual);
 		
-		//Perform the action to be tested
+		//Perform the action to be tested.
 		this.refugeNeg200.landedOn(this.Donald);
 		this.refugeNeg200.landedOn(this.Donald);
 		
