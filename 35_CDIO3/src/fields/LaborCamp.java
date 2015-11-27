@@ -47,16 +47,18 @@ public class LaborCamp extends AbstractOwnables {
 				GUI.showMessage(owner.getName()+ Text.landedOn + Text.fieldName[place]+ ". " + Text.youOwn);
 			}
 			
+			// Player has to pay rent to the owner. depending on dice values and number of Labor Camps owned by owner
 			else if(player!=owner){
 				DiceCup dicecup = new DiceCup();
 				GUI.showMessage(player.getName()+Text.rentRoll);	// Tells player to roll again
 				player.setLastRoll(dicecup.roll());		// Rolls the dice and saves it to player
 				GUI.setDice(dicecup.getDie1().getLastRoll(), dicecup.getDie2().getLastRoll());		// Shows dice on screen
 				
-				newRent = owner.getNumLaborOwned()*player.getLastRoll()*rent;
+				newRent = owner.getNumLaborOwned()*player.getLastRoll()*rent; // calculates and sets new rent
+				
 				GUI.showMessage(Text.laborRent + player.getLastRoll()+ " x "+ owner.getNumLaborOwned() +" = " + newRent); // Shows new rent on screen
-				player.getAccount().addBalance(- newRent);	
-				owner.getAccount().addBalance(newRent);				
+				player.getAccount().addBalance(- newRent);	// Player pays rent
+				owner.getAccount().addBalance(newRent);		// Owner gets rent		
 			} 
 		}
 	}
